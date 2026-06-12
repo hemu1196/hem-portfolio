@@ -1725,16 +1725,19 @@ footer {
     </div>
 
     <div class="reveal">
-  <div style="background:rgba(250,247,242,0.05);
-              border:1px solid rgba(250,247,242,0.1);
-              border-radius:var(--r-lg);
-              padding:50px 40px;
-              height:100%;
-              display:flex;
-              flex-direction:column;
-              justify-content:center;
-              align-items:center;
-              text-align:center;">
+        <div style="
+          background:rgba(250,247,242,.05);
+          border:1.5px solid #D9A441;
+          border-radius:var(--r-lg);
+          padding:50px 40px;
+          height:100%;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          text-align:center;
+          box-shadow:0 12px 35px rgba(217,164,65,.12);
+      ">
 
     <div style="font-size:60px; margin-bottom:20px;">
       🚀
@@ -1769,10 +1772,26 @@ footer {
     </p>
 
     <a href="mailto:pinjalahemachandra469@gmail.com?subject=Software%20Engineering%20Opportunity"
-       class="btn btn-teal"
-       style="padding:16px 38px; font-size:17px;">
-      📧 Email Me
-    </a>
+   style="
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:16px 38px;
+      background:linear-gradient(135deg,#E0A846,#F6C453);
+      color:#103C37;
+      font-size:17px;
+      font-weight:700;
+      text-decoration:none;
+      border-radius:14px;
+      border:none;
+      box-shadow:0 12px 30px rgba(224,168,70,.35);
+      transition:all .3s ease;
+   "
+   onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 18px 40px rgba(224,168,70,.55)'"
+   onmouseout="this.style.transform='translateY(0px)';this.style.boxShadow='0 12px 30px rgba(224,168,70,.35)'">
+    📧 Email Me
+   </a>
     <div style="width:100%;
                 margin:35px 0;
                 border-top:1px solid rgba(250,247,242,.12);">
