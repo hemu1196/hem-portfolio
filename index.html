@@ -14,9 +14,9 @@
   --ivory:    #faf7f2;
   --ivory2:   #f3ede3;
   --ivory3:   #e8dfd1;
-  --teal:     #0d3d3a;
-  --teal2:    #145c57;
-  --teal3:    #1e7a72;
+  --teal:     #122a42;
+  --teal2:    #1e4c72;
+  --teal3:    #2f6690;
   --gold:     #c9923a;
   --gold2:    #e8b060;
   --gold-lt:  #f5e3c8;
@@ -30,9 +30,9 @@
   --r-md:     16px;
   --r-lg:     24px;
   --r-xl:     40px;
-  --shadow-sm: 0 2px 12px rgba(13,61,58,0.06);
-  --shadow-md: 0 8px 32px rgba(13,61,58,0.10);
-  --shadow-lg: 0 24px 64px rgba(13,61,58,0.15);
+  --shadow-sm: 0 2px 12px rgba(18,42,66,0.06);
+  --shadow-md: 0 8px 32px rgba(18,42,66,0.10);
+  --shadow-lg: 0 24px 64px rgba(18,42,66,0.15);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -134,7 +134,7 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   bottom: -80px; left: 40%;
   width: 400px; height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(13,61,58,0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(18,42,66,0.05) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -195,7 +195,7 @@ nav.scrolled { box-shadow: var(--shadow-md); }
   letter-spacing: 0.01em;
 }
 .btn-teal { background: var(--teal); color: var(--ivory); }
-.btn-teal:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,61,58,0.25); }
+.btn-teal:hover { background: var(--teal2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(18,42,66,0.25); }
 .btn-outline { background: transparent; color: var(--teal); border: 2px solid var(--teal); }
 .btn-outline:hover { background: var(--teal); color: var(--ivory); transform: translateY(-2px); }
 .btn-gold { background: var(--gold); color: var(--white); }
@@ -215,78 +215,233 @@ nav.scrolled { box-shadow: var(--shadow-md); }
 .stat-number sup { font-size: 20px; color: var(--gold); }
 .stat-label { font-size: 12px; color: var(--text3); margin-top: 4px; font-weight: 500; letter-spacing: 0.05em; }
 
-/* ══════════ HERO PHOTO CARD ══════════ */
+/* ══════════ HERO ID-CARD HERO VISUAL ══════════ */
 .hero-right {
   position: relative; z-index: 2;
   animation: slideLeft 0.9s 0.2s ease both;
 }
 
-.photo-frame {
-  position: relative;
-  background: var(--white);
-  border-radius: var(--r-xl);
-  padding: 8px;
-  box-shadow: var(--shadow-lg);
-}
-.photo-frame::before {
-  content: '';
-  position: absolute;
-  inset: -2px; border-radius: calc(var(--r-xl) + 2px);
-  background: linear-gradient(135deg, var(--gold), var(--teal3), var(--gold));
-  z-index: -1;
-  opacity: 0.6;
+.idc-stage{
+  position:relative;
+  width:100%;
+  max-width:340px;
+  height:560px;
+  margin:0 auto;
 }
 
-.photo-inner {
-  border-radius: calc(var(--r-xl) - 4px);
-  overflow: hidden;
-  position: relative;
-  aspect-ratio: 3/4;
-  background: linear-gradient(160deg, #d4e8e6 0%, #b8d4d1 40%, #8fb8b4 100%);
-  display: flex; align-items: flex-end; justify-content: center;
+.idc-mount{
+  position:absolute;
+  top:0; left:50%;
+  transform:translateX(-50%);
+  width:13px; height:13px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #d8d8d8, #8a8a8a 70%);
+  box-shadow:0 2px 4px rgba(0,0,0,.3);
+  z-index:5;
 }
 
-/* SVG-based avatar illustration */
-.photo-svg-avatar {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  padding-bottom: 0;
+.idc-rig{
+  position:absolute;
+  top:6px; left:50%;
+  width:2px; height:100%;
+  transform-origin:top center;
+  animation: idc-swing 7s ease-in-out infinite;
+}
+@keyframes idc-swing{
+  0%,100%{ transform:rotate(-2.4deg); }
+  50%{ transform:rotate(2.4deg); }
+}
+.idc-stage:hover .idc-rig{ animation-duration:1.8s; }
+
+.idc-strap{
+  position:absolute;
+  top:0; left:50%;
+  transform:translateX(-50%);
+  width:28px; height:190px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      var(--rust) 0px, var(--rust) 24px,
+      #8a3a25 24px, #8a3a25 28px
+    );
+  border-radius:4px;
+  box-shadow:
+    inset 3px 0 6px rgba(0,0,0,.22),
+    inset -3px 0 6px rgba(0,0,0,.22),
+    0 6px 14px rgba(0,0,0,.2);
+}
+.idc-strap::before{
+  content:"AMRITA VISHWA VIDYAPEETHAM · AMRITA VISHWA VIDYAPEETHAM";
+  position:absolute;
+  top:50%; left:50%;
+  width:175px;
+  transform:translate(-50%,-50%) rotate(90deg);
+  color:rgba(255,255,255,.9);
+  font-family:'Cabinet Grotesk', sans-serif;
+  font-weight:700;
+  font-size:7.5px;
+  letter-spacing:2px;
+  text-align:center;
+  white-space:nowrap;
+  text-shadow:0 1px 1px rgba(0,0,0,.25);
 }
 
-.photo-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(13,61,58,0.85), transparent);
-  padding: 28px 24px 20px;
+.idc-clip{
+  position:absolute;
+  top:184px; left:50%;
+  transform:translateX(-50%);
+  width:26px; height:30px;
+  z-index:4;
 }
-.photo-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 700; color: var(--ivory);
-  letter-spacing: 0.02em;
+.idc-clip .idc-loop{
+  position:absolute;
+  top:0; left:50%;
+  width:16px; height:16px;
+  transform:translateX(-50%);
+  border:3.5px solid #d8d8d8;
+  border-radius:5px 5px 0 0;
+  border-bottom:none;
+  background:linear-gradient(180deg,#f0f0f0,#c2c2c2);
 }
-.photo-title { font-size: 12px; color: rgba(250,247,242,0.75); margin-top: 3px; font-weight: 400; }
+.idc-clip .idc-pinch{
+  position:absolute;
+  top:12px; left:50%;
+  width:22px; height:17px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,#efefef,#a8a8a8);
+  border-radius:4px;
+  box-shadow:0 3px 5px rgba(0,0,0,.3);
+}
 
-.photo-badge {
-  position: absolute; top: 20px; right: -16px;
-  background: var(--gold);
-  color: white; border-radius: var(--r-sm);
-  padding: 10px 14px; text-align: center;
-  box-shadow: var(--shadow-md);
+.idc-card{
+  position:absolute;
+  top:206px; left:50%;
+  transform:translateX(-50%);
+  width:300px; height:360px;
+  border-radius:22px;
+  background:linear-gradient(160deg, var(--teal) 0%, #0a1c2e 100%);
+  box-shadow:
+    0 28px 46px rgba(18,42,66,.28),
+    0 4px 10px rgba(18,42,66,.2);
+  padding:20px;
+  color:var(--ivory);
+  overflow:hidden;
 }
-.photo-badge-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px; font-weight: 700; line-height: 1;
+.idc-card::before{
+  content:"";
+  position:absolute;
+  top:9px; left:50%;
+  transform:translateX(-50%);
+  width:20px; height:7px;
+  border-radius:6px;
+  background:#0a1c2e;
+  box-shadow:inset 0 2px 3px rgba(0,0,0,.55);
 }
-.photo-badge-txt { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; margin-top: 1px; }
+.idc-card::after{
+  content:"";
+  position:absolute;
+  right:-55px; bottom:-55px;
+  width:180px; height:180px;
+  border-radius:50%;
+  border:1px solid rgba(232,176,96,.16);
+}
 
-.photo-tag {
-  position: absolute; bottom: 100px; left: -20px;
-  background: var(--white);
-  border-radius: var(--r-sm); padding: 10px 16px;
-  box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 10px;
+.idc-ribbon-clip{
+  position:absolute; inset:0;
+  border-radius:22px; overflow:hidden;
+  pointer-events:none; z-index:3;
 }
-.photo-tag-icon { font-size: 20px; }
-.photo-tag-text { font-size: 12px; font-weight: 700; color: var(--text); }
-.photo-tag-sub { font-size: 10px; color: var(--text3); margin-top: 1px; }
+.idc-ribbon{
+  position:absolute;
+  top:19px; right:-38px;
+  width:135px;
+  transform:rotate(40deg);
+  background:linear-gradient(90deg, var(--gold), var(--gold2));
+  color:var(--teal);
+  text-align:center;
+  font-family:'Cabinet Grotesk', sans-serif;
+  font-size:9px; font-weight:800; letter-spacing:1.2px;
+  padding:4px 0;
+  box-shadow:0 4px 8px rgba(0,0,0,.2);
+  z-index:2;
+}
+
+.idc-card-top{
+  display:flex; justify-content:space-between; align-items:flex-start;
+  margin-top:12px;
+}
+.idc-org{
+  font-family:'Cabinet Grotesk', sans-serif;
+  font-size:9.5px; letter-spacing:1.6px;
+  color:var(--gold2); text-transform:uppercase;
+}
+.idc-org b{ color:var(--ivory); display:block; font-size:11px; letter-spacing:1px; margin-top:2px; font-weight:700;}
+
+.idc-cgpa-pill{
+  background:var(--gold);
+  color:var(--teal);
+  font-family:'Cormorant Garamond', serif;
+  font-weight:700; font-size:15px;
+  padding:5px 10px; border-radius:10px;
+  text-align:center; line-height:1.05;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+.idc-cgpa-pill span{ display:block; font-family:'Cabinet Grotesk',sans-serif; font-size:7.5px; font-weight:700; letter-spacing:1px;}
+
+.idc-photo-wrap{
+  margin:16px auto 10px;
+  width:132px; height:150px;
+  border-radius:14px;
+  background:linear-gradient(160deg,#0b1d38,#2b60b5);
+  overflow:hidden;
+  border:2px solid rgba(232,176,96,.4);
+  position:relative;
+}
+.idc-photo-wrap svg{ position:absolute; top:0; left:0; width:100%; height:100%; }
+
+.idc-name{
+  text-align:center;
+  font-family:'Cormorant Garamond', serif;
+  font-size:20px; font-weight:700;
+  letter-spacing:.3px; margin:2px 0 1px;
+}
+.idc-name span{ color:var(--gold2); font-style:italic; }
+
+.idc-role-line{
+  text-align:center;
+  font-family:'Cabinet Grotesk', sans-serif;
+  font-size:10px; color:rgba(250,247,242,.65);
+  letter-spacing:.6px; margin-bottom:12px;
+}
+
+.idc-id-row{
+  display:flex; justify-content:space-between;
+  font-family:'JetBrains Mono', monospace;
+  font-size:9px; color:rgba(250,247,242,.55);
+  border-top:1px dashed rgba(232,176,96,.25);
+  padding-top:9px; letter-spacing:.3px;
+}
+.idc-meta-row{
+  display:flex; justify-content:space-between;
+  font-family:'Cabinet Grotesk', sans-serif;
+  font-size:9.5px; color:rgba(250,247,242,.55);
+  letter-spacing:.3px; margin-top:6px;
+}
+.idc-meta-row b{ color:var(--ivory); font-weight:700; }
+
+.idc-barcode{
+  margin-top:8px; height:18px;
+  background:repeating-linear-gradient(90deg,
+    var(--ivory) 0px, var(--ivory) 2px,
+    transparent 2px, transparent 4px,
+    var(--ivory) 4px, var(--ivory) 5px,
+    transparent 5px, transparent 8px);
+  opacity:.8;
+}
+
+@media (max-width: 1000px){
+  .idc-stage{ height:520px; }
+}
 
 /* ══════════ SECTIONS COMMON ══════════ */
 section { padding: 96px 60px; position: relative; }
@@ -422,7 +577,7 @@ section { padding: 96px 60px; position: relative; }
 }
 .proj-card.featured .proj-thumb { height: 260px; }
 
-.thumb-a { background: linear-gradient(135deg, #0d3d3a 0%, #1e7a72 100%); }
+.thumb-a { background: linear-gradient(135deg, #122a42 0%, #2f6690 100%); }
 .thumb-b { background: linear-gradient(135deg, #2d1a00 0%, #7a4800 60%, #c9923a 100%); }
 .thumb-c { background: linear-gradient(135deg, #1a0d2e 0%, #4a1f7a 60%, #7c3aed 100%); }
 .thumb-d { background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 60%, #2563eb 100%); }
@@ -547,7 +702,7 @@ section { padding: 96px 60px; position: relative; }
   font-size: 22px;
 }
 .ach-gold  { background: rgba(201,146,58,0.12); border: 1px solid rgba(201,146,58,0.2); }
-.ach-teal  { background: rgba(13,61,58,0.08); border: 1px solid rgba(13,61,58,0.15); }
+.ach-teal  { background: rgba(18,42,66,0.08); border: 1px solid rgba(18,42,66,0.15); }
 .ach-rust  { background: rgba(168,75,47,0.08); border: 1px solid rgba(168,75,47,0.15); }
 .ach-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; color: var(--teal); margin-bottom: 5px; }
 .ach-org   { font-size: 12px; color: var(--gold); font-weight: 700; letter-spacing: 0.05em; margin-bottom: 6px; }
@@ -637,7 +792,7 @@ section { padding: 96px 60px; position: relative; }
 
 /* ══════════ FOOTER ══════════ */
 footer {
-  background: #091f1e;
+  background: #0a1622;
   padding: 40px 60px;
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: 20px;
@@ -795,119 +950,90 @@ footer {
     </div>
   </div>
 
-  <!-- PHOTO CARD -->
+  <!-- ID-CARD HERO VISUAL -->
   <div class="hero-right">
-    <div class="photo-frame">
-      <div class="photo-inner">
-        <!-- SVG Avatar Illustration -->
-        <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;top:0;left:0;">
-          <!-- Background -->
-          <defs>
-          <linearGradient id="mbg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#0b162a"/>
-            <stop offset="100%" style="stop-color:#2b60b5"/>
-          </linearGradient>
-          <linearGradient id="mskin" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#c8834a"/>
-            <stop offset="100%" style="stop-color:#a8652e"/>
-          </linearGradient>
-          <linearGradient id="mhair" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#080707"/>
-            <stop offset="100%" style="stop-color:#0b0a0a"/>
-          </linearGradient>
-          <linearGradient id="mshirt" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#0704ce"/>
-            <stop offset="100%" style="stop-color:#0682ef"/>
-          </linearGradient>
-          <linearGradient id="mcol" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#eb9e2b"/>
-            <stop offset="100%" style="stop-color:#734500"/>
-          </linearGradient>
-        </defs>
-          <rect width="360" height="480" fill="url(#mbg)"/>
-        <ellipse cx="180" cy="280" rx="170" ry="200" fill="rgba(30,80,140,0.12)"/>
- 
-        <!-- Shirt / body -->
-        <path d="M70 480 L70 295 Q85 260 135 252 L180 272 L225 252 Q275 260 290 295 L290 480 Z" fill="url(#mshirt)"/>
-        <!-- Collar -->
-        <path d="M148 255 L165 275 L180 285 L195 275 L212 255 L220 252 L205 278 L195 290 L180 298 L165 290 L155 278 L140 252 Z" fill="url(#mcol)"/>
-        <!-- Neck -->
-        <rect x="155" y="215" width="50" height="46" rx="16" fill="url(#mskin)"/>
- 
-        <!-- Head -->
-        <ellipse cx="180" cy="192" rx="68" ry="74" fill="url(#mskin)"/>
- 
-        <!-- Short hair -->
-        <path d="M113 162 Q118 120 180 112 Q242 120 247 162 Q244 145 230 138 Q210 128 180 128 Q150 128 130 138 Q116 145 113 162 Z" fill="url(#mhair)"/>
-        <path d="M113 162 Q110 168 112 176 Q114 170 118 168 Z" fill="url(#mhair)"/>
-        <path d="M247 162 Q250 168 248 176 Q246 170 242 168 Z" fill="url(#mhair)"/>
- 
-        <!-- Eyes -->
-        <ellipse cx="157" cy="193" rx="12" ry="9" fill="#1a0e04"/>
-        <ellipse cx="203" cy="193" rx="12" ry="9" fill="#1a0e04"/>
-        <ellipse cx="154" cy="191" rx="4.5" ry="3.5" fill="white"/>
-        <ellipse cx="200" cy="191" rx="4.5" ry="3.5" fill="white"/>
-        <circle cx="157" cy="192" r="2.2" fill="#1a0e04"/>
-        <circle cx="203" cy="192" r="2.2" fill="#1a0e04"/>
-        <!-- Eye catchlights -->
-        <circle cx="159" cy="190" r="1.2" fill="white"/>
-        <circle cx="205" cy="190" r="1.2" fill="white"/>
- 
-        <!-- Eyebrows -->
-        <path d="M145 181 Q158 176 171 179" stroke="#1a0e04" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-        <path d="M189 179 Q202 176 215 181" stroke="#1a0e04" stroke-width="2.8" fill="none" stroke-linecap="round"/>
- 
-        <!-- Nose -->
-        <path d="M176 202 Q173 213 175 218 Q180 222 185 218 Q187 213 184 202" fill="rgba(0,0,0,0.09)" stroke="none"/>
- 
-        <!-- Mouth -->
-        <path d="M165 228 Q172 234 180 235 Q188 234 195 228" stroke="#7a4030" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <path d="M168 230 Q180 237 192 230" stroke="none" fill="rgba(150,70,55,0.25)"/>
- 
-        <!-- Ears -->
-        <ellipse cx="115" cy="200" rx="11" ry="14" fill="url(#mskin)"/>
-        <ellipse cx="245" cy="200" rx="11" ry="14" fill="url(#mskin)"/>
- 
-        <!-- Cheek blush -->
-        <ellipse cx="148" cy="213" rx="13" ry="7" fill="rgba(200,90,70,0.10)"/>
-        <ellipse cx="212" cy="213" rx="13" ry="7" fill="rgba(200,90,70,0.10)"/>
- 
-        <!-- Laptop -->
-        <rect x="108" y="352" width="144" height="92" rx="8" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
-        <rect x="114" y="358" width="132" height="74" rx="5" fill="rgba(10,30,60,0.65)"/>
-        <rect x="118" y="362" width="124" height="66" rx="4" fill="rgba(20,54,94,0.5)"/>
-        <!-- Code lines on screen -->
-        <rect x="124" y="371" width="55" height="3" rx="2" fill="rgba(100,180,255,0.55)"/>
-        <rect x="124" y="379" width="88" height="3" rx="2" fill="rgba(255,255,255,0.2)"/>
-        <rect x="132" y="387" width="68" height="3" rx="2" fill="rgba(255,255,255,0.15)"/>
-        <rect x="132" y="395" width="48" height="3" rx="2" fill="rgba(250,200,80,0.5)"/>
-        <rect x="124" y="403" width="78" height="3" rx="2" fill="rgba(255,255,255,0.1)"/>
-        <rect x="124" y="411" width="38" height="3" rx="2" fill="rgba(100,180,255,0.3)"/>
-          <!-- Subtle vignette overlay -->
-          <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
-            <stop offset="60%" style="stop-color:transparent"/>
-            <stop offset="100%" style="stop-color:rgba(0,0,0,0.15)"/>
-          </radialGradient>
-          <rect width="360" height="480" fill="url(#vignette)"/>
-        </svg>
-
-        <div class="photo-overlay">
-          <div class="photo-name"> P HEMA CHANDRA </div>
-          <div class="photo-title">Amrita Vishwa Vidyapeetham · CSE · 3 rd Year</div>
+    <div class="idc-stage">
+      <div class="idc-mount"></div>
+      <div class="idc-rig">
+        <div class="idc-strap"></div>
+        <div class="idc-clip">
+          <div class="idc-loop"></div>
+          <div class="idc-pinch"></div>
         </div>
-      </div>
 
-      <!-- Floating badges -->
-      <div class="photo-badge">
-        <div class="photo-badge-num">7.37</div>
-        <div class="photo-badge-txt">CGPA</div>
-      </div>
+        <div class="idc-card">
+          <div class="idc-ribbon-clip"><div class="idc-ribbon">FULL-STACK DEV</div></div>
 
-      <div class="photo-tag">
-        <div class="photo-tag-icon">💻</div>
-        <div>
-          <div class="photo-tag-text">Full-Stack Dev</div>
-          <div class="photo-tag-sub">Building Real-World Projects</div>
+          <div class="idc-card-top">
+            <div class="idc-org">Amrita<b>Vishwa Vidyapeetham</b></div>
+            <div class="idc-cgpa-pill">7.37<span>CGPA</span></div>
+          </div>
+
+          <div class="idc-photo-wrap">
+            <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="mbg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0b162a"/>
+                  <stop offset="100%" style="stop-color:#2b60b5"/>
+                </linearGradient>
+                <linearGradient id="mskin2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#c8834a"/>
+                  <stop offset="100%" style="stop-color:#a8652e"/>
+                </linearGradient>
+                <linearGradient id="mhair2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#080707"/>
+                  <stop offset="100%" style="stop-color:#0b0a0a"/>
+                </linearGradient>
+                <linearGradient id="mshirt2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0704ce"/>
+                  <stop offset="100%" style="stop-color:#0682ef"/>
+                </linearGradient>
+                <linearGradient id="mcol2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#eb9e2b"/>
+                  <stop offset="100%" style="stop-color:#734500"/>
+                </linearGradient>
+              </defs>
+              <rect width="360" height="480" fill="url(#mbg2)"/>
+              <ellipse cx="180" cy="280" rx="170" ry="200" fill="rgba(30,80,140,0.12)"/>
+              <path d="M70 480 L70 295 Q85 260 135 252 L180 272 L225 252 Q275 260 290 295 L290 480 Z" fill="url(#mshirt2)"/>
+              <path d="M148 255 L165 275 L180 285 L195 275 L212 255 L220 252 L205 278 L195 290 L180 298 L165 290 L155 278 L140 252 Z" fill="url(#mcol2)"/>
+              <rect x="155" y="215" width="50" height="46" rx="16" fill="url(#mskin2)"/>
+              <ellipse cx="180" cy="192" rx="68" ry="74" fill="url(#mskin2)"/>
+              <path d="M113 162 Q118 120 180 112 Q242 120 247 162 Q244 145 230 138 Q210 128 180 128 Q150 128 130 138 Q116 145 113 162 Z" fill="url(#mhair2)"/>
+              <path d="M113 162 Q110 168 112 176 Q114 170 118 168 Z" fill="url(#mhair2)"/>
+              <path d="M247 162 Q250 168 248 176 Q246 170 242 168 Z" fill="url(#mhair2)"/>
+              <ellipse cx="157" cy="193" rx="12" ry="9" fill="#1a0e04"/>
+              <ellipse cx="203" cy="193" rx="12" ry="9" fill="#1a0e04"/>
+              <ellipse cx="154" cy="191" rx="4.5" ry="3.5" fill="white"/>
+              <ellipse cx="200" cy="191" rx="4.5" ry="3.5" fill="white"/>
+              <circle cx="157" cy="192" r="2.2" fill="#1a0e04"/>
+              <circle cx="203" cy="192" r="2.2" fill="#1a0e04"/>
+              <circle cx="159" cy="190" r="1.2" fill="white"/>
+              <circle cx="205" cy="190" r="1.2" fill="white"/>
+              <path d="M145 181 Q158 176 171 179" stroke="#1a0e04" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+              <path d="M189 179 Q202 176 215 181" stroke="#1a0e04" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+              <path d="M176 202 Q173 213 175 218 Q180 222 185 218 Q187 213 184 202" fill="rgba(0,0,0,0.09)" stroke="none"/>
+              <path d="M165 228 Q172 234 180 235 Q188 234 195 228" stroke="#7a4030" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <path d="M168 230 Q180 237 192 230" stroke="none" fill="rgba(150,70,55,0.25)"/>
+              <ellipse cx="115" cy="200" rx="11" ry="14" fill="url(#mskin2)"/>
+              <ellipse cx="245" cy="200" rx="11" ry="14" fill="url(#mskin2)"/>
+              <ellipse cx="148" cy="213" rx="13" ry="7" fill="rgba(200,90,70,0.10)"/>
+              <ellipse cx="212" cy="213" rx="13" ry="7" fill="rgba(200,90,70,0.10)"/>
+            </svg>
+          </div>
+
+          <div class="idc-name">P Hema <span>Chandra</span></div>
+          <div class="idc-role-line">CSE · 3rd Year · Full-Stack Developer</div>
+
+          <div class="idc-id-row">
+            <span>CB.SC.U4CSE24437</span>
+            <span>2024 – 2028</span>
+          </div>
+          <div class="idc-meta-row">
+            <span>Gender: <b>Male</b></span>
+            <span>Status: <b>Active</b></span>
+          </div>
+          <div class="idc-barcode"></div>
         </div>
       </div>
     </div>
