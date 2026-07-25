@@ -968,57 +968,63 @@ footer {
           </div>
 
           <div class="idc-photo-wrap">
-            <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="mbg2" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#0b162a"/>
-                  <stop offset="100%" style="stop-color:#2b60b5"/>
-                </linearGradient>
-                <linearGradient id="mskin2" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#c8834a"/>
-                  <stop offset="100%" style="stop-color:#a8652e"/>
-                </linearGradient>
-                <linearGradient id="mhair2" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#080707"/>
-                  <stop offset="100%" style="stop-color:#0b0a0a"/>
-                </linearGradient>
-                <linearGradient id="mshirt2" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#0704ce"/>
-                  <stop offset="100%" style="stop-color:#0682ef"/>
-                </linearGradient>
-                <linearGradient id="mcol2" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#eb9e2b"/>
-                  <stop offset="100%" style="stop-color:#734500"/>
-                </linearGradient>
-              </defs>
-              <rect width="360" height="480" fill="url(#mbg2)"/>
-              <ellipse cx="180" cy="280" rx="170" ry="200" fill="rgba(30,80,140,0.12)"/>
-              <path d="M70 480 L70 295 Q85 260 135 252 L180 272 L225 252 Q275 260 290 295 L290 480 Z" fill="url(#mshirt2)"/>
-              <path d="M148 255 L165 275 L180 285 L195 275 L212 255 L220 252 L205 278 L195 290 L180 298 L165 290 L155 278 L140 252 Z" fill="url(#mcol2)"/>
-              <rect x="155" y="215" width="50" height="46" rx="16" fill="url(#mskin2)"/>
-              <ellipse cx="180" cy="192" rx="68" ry="74" fill="url(#mskin2)"/>
-              <path d="M113 162 Q118 120 180 112 Q242 120 247 162 Q244 145 230 138 Q210 128 180 128 Q150 128 130 138 Q116 145 113 162 Z" fill="url(#mhair2)"/>
-              <path d="M113 162 Q110 168 112 176 Q114 170 118 168 Z" fill="url(#mhair2)"/>
-              <path d="M247 162 Q250 168 248 176 Q246 170 242 168 Z" fill="url(#mhair2)"/>
-              <ellipse cx="157" cy="193" rx="12" ry="9" fill="#1a0e04"/>
-              <ellipse cx="203" cy="193" rx="12" ry="9" fill="#1a0e04"/>
-              <ellipse cx="154" cy="191" rx="4.5" ry="3.5" fill="white"/>
-              <ellipse cx="200" cy="191" rx="4.5" ry="3.5" fill="white"/>
-              <circle cx="157" cy="192" r="2.2" fill="#1a0e04"/>
-              <circle cx="203" cy="192" r="2.2" fill="#1a0e04"/>
-              <circle cx="159" cy="190" r="1.2" fill="white"/>
-              <circle cx="205" cy="190" r="1.2" fill="white"/>
-              <path d="M145 181 Q158 176 171 179" stroke="#1a0e04" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-              <path d="M189 179 Q202 176 215 181" stroke="#1a0e04" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-              <path d="M176 202 Q173 213 175 218 Q180 222 185 218 Q187 213 184 202" fill="rgba(0,0,0,0.09)" stroke="none"/>
-              <path d="M165 228 Q172 234 180 235 Q188 234 195 228" stroke="#7a4030" stroke-width="2" fill="none" stroke-linecap="round"/>
-              <path d="M168 230 Q180 237 192 230" stroke="none" fill="rgba(150,70,55,0.25)"/>
-              <ellipse cx="115" cy="200" rx="11" ry="14" fill="url(#mskin2)"/>
-              <ellipse cx="245" cy="200" rx="11" ry="14" fill="url(#mskin2)"/>
-              <ellipse cx="148" cy="213" rx="13" ry="7" fill="rgba(200,90,70,0.10)"/>
-              <ellipse cx="212" cy="213" rx="13" ry="7" fill="rgba(200,90,70,0.10)"/>
-            </svg>
-          </div>
+  <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="mbg2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#0b162a"/>
+        <stop offset="100%" style="stop-color:#2b60b5"/>
+      </linearGradient>
+      <linearGradient id="skinFlat" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#e8b587"/>
+        <stop offset="100%" style="stop-color:#d9a172"/>
+      </linearGradient>
+    </defs>
+
+    <!-- background -->
+    <rect width="360" height="480" fill="url(#mbg2)"/>
+    <ellipse cx="180" cy="280" rx="170" ry="200" fill="rgba(30,80,140,0.12)"/>
+
+    <!-- suit jacket -->
+    <path d="M60 480 L60 340 Q60 300 105 285 L150 340 Q180 360 210 340 L255 285
+             Q300 300 300 340 L300 480 Z" fill="#1c1f26"/>
+    <!-- lapels -->
+    <path d="M150 340 L172 300 L180 340 L158 375 Z" fill="#14161c"/>
+    <path d="M210 340 L188 300 L180 340 L202 375 Z" fill="#14161c"/>
+
+    <!-- shirt -->
+    <path d="M158 300 L180 340 L202 300 L215 320 L180 400 L145 320 Z" fill="#ffffff"/>
+
+    <!-- tie -->
+    <path d="M172 305 L188 305 L194 330 L180 350 L166 330 Z" fill="#c81e2c"/>
+    <path d="M174 330 L186 330 L192 400 L180 415 L168 400 Z" fill="#c81e2c"/>
+
+    <!-- neck -->
+    <rect x="158" y="255" width="44" height="50" rx="14" fill="url(#skinFlat)"/>
+
+    <!-- head -->
+    <ellipse cx="180" cy="195" rx="66" ry="72" fill="url(#skinFlat)"/>
+
+    <!-- hair: simple flat swoop like reference -->
+    <path d="M112 175
+             Q108 120 180 108
+             Q252 120 248 175
+             Q248 155 236 148
+             Q244 165 238 178
+             Q232 150 210 138
+             Q222 128 220 118
+             Q195 132 180 132
+             Q165 132 145 122
+             Q140 134 150 142
+             Q128 150 122 168
+             Q116 158 118 148
+             Q108 158 112 175 Z"
+          fill="#3b2415"/>
+
+    <!-- subtle side hair -->
+    <path d="M112 175 Q108 190 114 205 Q116 185 122 178 Z" fill="#3b2415"/>
+    <path d="M248 175 Q252 190 246 205 Q244 185 238 178 Z" fill="#3b2415"/>
+  </svg>
+</div>
 
           <div class="idc-name">P Hema <span>Chandra</span></div>
           <div class="idc-role-line">CSE · 3rd Year · Full-Stack Developer</div>
