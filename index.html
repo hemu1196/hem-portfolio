@@ -427,14 +427,19 @@ nav.scrolled { box-shadow: var(--shadow-md); }
 }
 .idc-meta-row b{ color:var(--ivory); font-weight:700; }
 
-.idc-barcode{
-  margin-top:8px; height:18px;
-  background:repeating-linear-gradient(90deg,
-    var(--ivory) 0px, var(--ivory) 2px,
+.idc-barcode {
+  height: 32px;
+  margin-top: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffffff 0px, #ffffff 2px,
     transparent 2px, transparent 4px,
-    var(--ivory) 4px, var(--ivory) 5px,
-    transparent 5px, transparent 8px);
-  opacity:.8;
+    #ffffff 4px, #ffffff 5px,
+    transparent 5px, transparent 8px,
+    #ffffff 8px, #ffffff 9px,
+    transparent 9px, transparent 11px
+  );
+  opacity: 0.9;
 }
 
 @media (max-width: 1000px){
