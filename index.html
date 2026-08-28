@@ -440,7 +440,20 @@ nav.scrolled { box-shadow: var(--shadow-md); }
 @media (max-width: 1000px){
   .idc-stage{ height:520px; }
 }
+.idc-photo-wrap {
+  width: 100%;
+  aspect-ratio: 360 / 480;   /* matches the old SVG viewBox ratio */
+  overflow: hidden;
+  border-radius: 12px;       /* adjust to match your card's corner style */
+}
 
+.idc-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* crops to fill, keeps aspect ratio, no squishing */
+  object-position: center top; /* keeps your face centered if the box is cropped */
+  display: block;
+}
 /* ══════════ SECTIONS COMMON ══════════ */
 section { padding: 96px 60px; position: relative; }
 
@@ -952,6 +965,7 @@ footer {
   </div>
 
   <!-- ID-CARD HERO VISUAL -->
+  <!-- ID-CARD HERO VISUAL -->
   <div class="hero-right">
     <div class="idc-stage">
       <div class="idc-mount"></div>
@@ -961,77 +975,19 @@ footer {
           <div class="idc-loop"></div>
           <div class="idc-pinch"></div>
         </div>
-
         <div class="idc-card">
           <div class="idc-ribbon-clip"><div class="idc-ribbon">FULL-STACK DEV</div></div>
-
           <div class="idc-card-top">
             <div class="idc-org">Amrita<b>Vishwa Vidyapeetham</b></div>
             <div class="idc-cgpa-pill">7.37<span>CGPA</span></div>
           </div>
 
           <div class="idc-photo-wrap">
-  <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="mbg2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#0b162a"/>
-        <stop offset="100%" style="stop-color:#2b60b5"/>
-      </linearGradient>
-      <linearGradient id="skinFlat" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#e8b587"/>
-        <stop offset="100%" style="stop-color:#d9a172"/>
-      </linearGradient>
-    </defs>
-
-    <!-- background -->
-    <rect width="360" height="480" fill="url(#mbg2)"/>
-    <ellipse cx="180" cy="280" rx="170" ry="200" fill="rgba(30,80,140,0.12)"/>
-
-    <!-- suit jacket -->
-    <path d="M60 480 L60 340 Q60 300 105 285 L150 340 Q180 360 210 340 L255 285
-             Q300 300 300 340 L300 480 Z" fill="#1c1f26"/>
-    <!-- lapels -->
-    <path d="M150 340 L172 300 L180 340 L158 375 Z" fill="#14161c"/>
-    <path d="M210 340 L188 300 L180 340 L202 375 Z" fill="#14161c"/>
-
-    <!-- shirt -->
-    <path d="M158 300 L180 340 L202 300 L215 320 L180 400 L145 320 Z" fill="#ffffff"/>
-
-    <!-- tie -->
-    <path d="M172 305 L188 305 L194 330 L180 350 L166 330 Z" fill="#c81e2c"/>
-    <path d="M174 330 L186 330 L192 400 L180 415 L168 400 Z" fill="#c81e2c"/>
-
-    <!-- neck -->
-    <rect x="158" y="255" width="44" height="50" rx="14" fill="url(#skinFlat)"/>
-
-    <!-- head -->
-    <ellipse cx="180" cy="195" rx="66" ry="72" fill="url(#skinFlat)"/>
-
-    <!-- hair: simple flat swoop like reference -->
-    <path d="M112 175
-             Q108 120 180 108
-             Q252 120 248 175
-             Q248 155 236 148
-             Q244 165 238 178
-             Q232 150 210 138
-             Q222 128 220 118
-             Q195 132 180 132
-             Q165 132 145 122
-             Q140 134 150 142
-             Q128 150 122 168
-             Q116 158 118 148
-             Q108 158 112 175 Z"
-          fill="#3b2415"/>
-
-    <!-- subtle side hair -->
-    <path d="M112 175 Q108 190 114 205 Q116 185 122 178 Z" fill="#3b2415"/>
-    <path d="M248 175 Q252 190 246 205 Q244 185 238 178 Z" fill="#3b2415"/>
-  </svg>
-</div>
+            <img src="assets/HEM_PP.jpeg" alt="P Hema Chandra" class="idc-photo-img" />
+          </div>
 
           <div class="idc-name">P Hema <span>Chandra</span></div>
           <div class="idc-role-line">CSE · 3rd Year · AI/ML • Full-Stack</div>
-
           <div class="idc-id-row">
             <span>CB.SC.U4CSE24437</span>
             <span>2024 – 2028</span>
@@ -1045,7 +1001,6 @@ footer {
     </div>
   </div>
 </section>
-
 <!-- ══════════ ABOUT ══════════ -->
 <section class="about" id="about">
   <div class="about-grid">
