@@ -6,6 +6,7 @@
 <title>Hema Chandra — Computer Science Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Cabinet+Grotesk:wght@300;400;500;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 /* ══════════════════════════════════════════════ DESIGN TOKENS — Warm Ivory × Deep Teal × Gold  ══════════════════════════════════════════════ */
 :root {
@@ -198,6 +199,111 @@ nav.scrolled { box-shadow: var(--shadow-md); }
 .btn-outline:hover { background: var(--teal); color: var(--ivory); transform: translateY(-2px); }
 .btn-gold { background: var(--gold); color: var(--white); }
 .btn-gold:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,146,58,0.35); }
+
+
+/* ══════════ HERO SOCIAL LINKS — PROFESSIONAL SPACED DESIGN ══════════ */
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+  margin-bottom: 38px;
+  padding: 6px 0;
+  animation: slideDown 0.7s 0.45s ease both;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(13,61,58,0.16);
+  border-radius: 14px;
+  background: rgba(250,247,242,0.72);
+  color: var(--teal);
+  text-decoration: none;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(13,61,58,0.06);
+  transition:
+    transform 0.28s ease,
+    color 0.28s ease,
+    background 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.social-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(201,168,92,0.16),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.social-link i,
+.social-icon-img {
+  position: relative;
+  z-index: 1;
+}
+
+.social-icon-img {
+  width: 21px;
+  height: 21px;
+  display: block;
+  opacity: 0.9;
+  transition: transform 0.28s ease, opacity 0.28s ease, filter 0.28s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-6px);
+  background: var(--teal);
+  color: var(--ivory);
+  border-color: var(--teal);
+  box-shadow: 0 12px 26px rgba(13,61,58,0.20);
+}
+
+.social-link:hover::before {
+  opacity: 1;
+}
+
+.social-link:hover .social-icon-img {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+.social-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  .hero-socials {
+    gap: 13px;
+    margin-top: 24px;
+    margin-bottom: 30px;
+  }
+
+  .social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+  .social-icon-img {
+    width: 19px;
+    height: 19px;
+  }
+}
 
 .hero-stats {
   display: flex; gap: 32px; margin-top: 44px; padding-top: 36px;
@@ -911,6 +1017,56 @@ footer {
       </a>
       <a href="#contact" class="btn btn-gold">Let's Talk →</a>
      </div>
+
+
+    <div class="hero-socials" aria-label="Social and professional profiles">
+      <a href="https://www.linkedin.com/in/hema-chandra-88882033b/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-link"
+         aria-label="LinkedIn"
+         title="LinkedIn">
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://github.com/hemu1196"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-link"
+         aria-label="GitHub"
+         title="GitHub">
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+      </a>
+
+      <a href="https://leetcode.com/u/hem1196/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-link"
+         aria-label="LeetCode"
+         title="LeetCode">
+        <img src="https://cdn.simpleicons.org/leetcode"
+             alt="LeetCode"
+             class="social-icon-img">
+      </a>
+
+      <a href="https://www.codechef.com/users/hem1196"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-link"
+         aria-label="CodeChef"
+         title="CodeChef">
+        <img src="https://cdn.simpleicons.org/codechef"
+             alt="CodeChef"
+             class="social-icon-img">
+      </a>
+
+      <a href="mailto:pinjalahemachandra469@gmail.com"
+         class="social-link"
+         aria-label="Email"
+         title="Email">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
 
     <div class="hero-stats">
       <div class="hero-stat">
