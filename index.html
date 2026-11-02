@@ -682,8 +682,28 @@ section { padding: 96px 60px; position: relative; }
   box-shadow: var(--shadow-lg);
   border-color: transparent;
 }
-.proj-card.featured { grid-column: span 2; }
+/* Featured project spans two columns */
+.proj-card.featured {
+  grid-column: span 2;
+  border: 1px solid rgba(217, 164, 65, 0.55);
+  box-shadow: 0 8px 28px rgba(217, 164, 65, 0.08);
+  position: relative;
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
 
+/* Hover effect */
+.proj-card.featured:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 34px rgba(217, 164, 65, 0.16);
+}
+
+/* Responsive: featured cards use full width on mobile */
+@media (max-width: 768px) {
+  .proj-card.featured {
+    grid-column: span 1;
+  }
+}
 .proj-thumb {
   position: relative; overflow: hidden;
   height: 200px; display: flex; align-items: center; justify-content: center;
@@ -957,6 +977,143 @@ footer {
   .hero-stats { gap: 20px; }
   .cf-row { grid-template-columns: 1fr; }
 }
+
+/* ══════════ CONTACT SECTION — STUDENT STYLE ══════════ */
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+/* Friendly contact card */
+.contact-note-card {
+  height: 100%;
+  min-height: 500px;
+  padding: 48px 42px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: rgba(250, 247, 242, 0.045);
+  border: 1px solid rgba(217, 164, 65, 0.5);
+  border-radius: var(--r-lg);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Small rocket decoration */
+.contact-note-doodle {
+  font-size: 42px;
+  margin-bottom: 22px;
+  transform: rotate(-8deg);
+}
+
+/* Card heading */
+.contact-note-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 8px 0 22px;
+  color: var(--ivory);
+}
+
+/* Text */
+.contact-note-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.contact-note-text strong {
+  color: #E0A846;
+  font-weight: 700;
+}
+
+/* Email button */
+.contact-email-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  margin-top: 16px;
+  padding: 15px 28px;
+
+  background: linear-gradient(135deg, #E0A846, #F6C453);
+  color: #103C37;
+
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+
+  border-radius: 12px;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.contact-email-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(224, 168, 70, 0.25);
+}
+
+/* Bottom details */
+.contact-note-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin-top: 36px;
+  padding-top: 26px;
+
+  border-top: 1px solid rgba(250, 247, 242, 0.12);
+
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Mobile responsive */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .contact-note-card {
+    min-height: auto;
+    padding: 32px 26px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-note-card {
+    padding: 26px 20px;
+  }
+
+  .contact-note-title {
+    font-size: 32px;
+  }
+
+  .contact-note-text {
+    font-size: 14px;
+  }
+
+  .contact-email-btn {
+    width: 100%;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1355,223 +1512,485 @@ footer {
     </div>
   </div>
 
-  <div class="projects-grid">
-   <!-- FEATURED PROJECT -->
-<!-- PROJECT 1: EVENTHUB -->
-<div class="proj-card featured" data-category="fullstack">
-  <div class="proj-thumb thumb-a">
-    <div class="proj-thumb-icon">
-      <i class="fas fa-calendar-check"></i>
+  
+<div class="projects-grid">
+
+  <!-- ══════════ PROJECT 1: EVENTHUB — FEATURED ══════════ -->
+  <div class="proj-card featured reveal">
+
+    <div class="proj-thumb thumb-a">
+      <div class="proj-thumb-icon">🎉</div>
+      <div class="proj-status status-live">● Featured Project</div>
     </div>
-    <span class="proj-status status-live">Full Stack</span>
+
+    <div class="proj-body">
+
+      <div class="proj-cats">
+        <span class="proj-cat">React.js</span>
+        <span class="proj-cat">Tailwind CSS</span>
+        <span class="proj-cat">Supabase</span>
+        <span class="proj-cat">PostgreSQL</span>
+      </div>
+
+      <div class="proj-title">
+        EventHub – Event Registration & Management Platform
+      </div>
+
+      <div class="proj-desc">
+        Built a modern full-stack event management platform using React.js,
+        Tailwind CSS, Supabase, and PostgreSQL. Features event registration,
+        Razorpay payment integration, automated PDF ticket generation with
+        jsPDF, real-time database synchronization, and a responsive user
+        experience.
+      </div>
+
+      <div class="proj-metrics">
+
+        <div class="proj-metric">
+          <div class="pm-val">React</div>
+          <div class="pm-label">Frontend</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Supabase</div>
+          <div class="pm-label">Backend</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Razorpay</div>
+          <div class="pm-label">Payments</div>
+        </div>
+
+      </div>
+
+      <div class="proj-links">
+        <a href="https://github.com/hemu1196/eventHub"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          GitHub ↗
+        </a>
+
+        <a href="https://event-hub-eight-tau.vercel.app/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          Live Demo ↗
+        </a>
+      </div>
+
+    </div>
   </div>
 
-  <div class="proj-body">
-    <div class="proj-cats">
-      <span class="proj-cat">Web Development</span>
-      <span class="proj-cat">Full Stack</span>
+
+  <!-- ══════════ PROJECT 2: HEALTHCARE INSURANCE COST PREDICTION — FEATURED ══════════ -->
+  <div class="proj-card featured reveal">
+
+    <div class="proj-thumb thumb-b">
+      <div class="proj-thumb-icon">📈</div>
+      <div class="proj-status status-live">● Live Demo</div>
     </div>
 
-    <h3 class="proj-title">EventHub — Event Management Platform</h3>
+    <div class="proj-body">
 
-    <p class="proj-desc">
-      A full-stack event management platform built to simplify event discovery,
-      registration, and management. Integrated frontend, backend, database,
-      and payment functionality to deliver a complete event booking experience.
-    </p>
+      <div class="proj-cats">
+        <span class="proj-cat">Machine Learning</span>
+        <span class="proj-cat">Python</span>
+        <span class="proj-cat">Streamlit</span>
+      </div>
 
-    <div class="proj-tech">
-      <span class="tool-chip">React</span>
-      <span class="tool-chip">Node.js</span>
-      <span class="tool-chip">Supabase</span>
-      <span class="tool-chip">Razorpay</span>
-      <span class="tool-chip">Vercel</span>
-    </div>
+      <div class="proj-title">
+        Healthcare Insurance Cost Prediction
+      </div>
 
-    <div class="proj-links">
-      <!-- Keep your original EventHub project URL -->
-      <a href="YOUR_EVENTHUB_PROJECT_LINK"
-         class="proj-link" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-external-link-alt"></i> Live Project
-      </a>
+      <div class="proj-desc">
+        Developed a machine learning application to predict healthcare
+        insurance costs based on user-provided information. Built an
+        interactive Streamlit interface to make model predictions
+        accessible through a simple web application.
+      </div>
 
-      <!-- Keep your original GitHub repository URL -->
-      <a href="YOUR_EVENTHUB_GITHUB_LINK"
-         class="proj-link" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github"></i> GitHub
-      </a>
+      <div class="proj-metrics">
+
+        <div class="proj-metric">
+          <div class="pm-val">ML</div>
+          <div class="pm-label">Prediction</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Python</div>
+          <div class="pm-label">Language</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Streamlit</div>
+          <div class="pm-label">Deployment</div>
+        </div>
+
+      </div>
+
+      <div class="proj-links">
+        <a href="https://healthcare-insurance-cost-prediction-mekvzuvgfimmhccezb5qjp.streamlit.app/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          Live Demo ↗
+        </a>
+      </div>
+
     </div>
   </div>
+
+
+  <!-- ══════════ PROJECT 3: NETWALK PUZZLE GAME ══════════ -->
+  <div class="proj-card reveal">
+
+    <div class="proj-thumb thumb-a">
+      <div class="proj-thumb-icon">🧩</div>
+      <div class="proj-status status-live">● Completed</div>
+    </div>
+
+    <div class="proj-body">
+
+      <div class="proj-cats">
+        <span class="proj-cat">DAA</span>
+        <span class="proj-cat">DSA</span>
+        <span class="proj-cat">Game Logic</span>
+      </div>
+
+      <div class="proj-title">
+        Netwalk Puzzle Game
+      </div>
+
+      <div class="proj-desc">
+        Developed a Human vs Computer Netwalk Puzzle Game using Python
+        and Data Structures & Algorithms. Implemented intelligent game
+        logic, graph-based connectivity, and pathfinding algorithms to
+        create an interactive puzzle-solving experience.
+      </div>
+
+      <div class="proj-metrics">
+
+        <div class="proj-metric">
+          <div class="pm-val">DSA</div>
+          <div class="pm-label">Core</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Logic</div>
+          <div class="pm-label">Problem Solving</div>
+        </div>
+
+      </div>
+
+      <div class="proj-links">
+        <a href="https://github.com/hemu1196/netwalk-puzzle-game"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          GitHub ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════ PROJECT 4: ATTENDANCE MANAGEMENT SYSTEM ══════════ -->
+  <div class="proj-card reveal">
+
+    <div class="proj-thumb thumb-d">
+      <div class="proj-thumb-icon">📊</div>
+      <div class="proj-status status-live">● Completed</div>
+    </div>
+
+    <div class="proj-body">
+
+      <div class="proj-cats">
+        <span class="proj-cat">Web Development</span>
+        <span class="proj-cat">Database</span>
+      </div>
+
+      <div class="proj-title">
+        Attendance Management System
+      </div>
+
+      <div class="proj-desc">
+        Developed a web-based Attendance Management System using HTML,
+        CSS, and JavaScript with dedicated Admin, Student, and Parent
+        modules. Implemented attendance tracking, monitoring, and
+        automated absence alerts to improve communication and
+        streamline attendance management.
+      </div>
+
+      <div class="proj-metrics">
+
+        <div class="proj-metric">
+          <div class="pm-val">CRUD</div>
+          <div class="pm-label">Operations</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">MySQL</div>
+          <div class="pm-label">Database</div>
+        </div>
+
+      </div>
+
+      <div class="proj-links">
+        <a href="https://github.com/hemu1196/Attendance-Management-System"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          GitHub ↗
+        </a>
+
+        <a href="https://hemu1196.github.io/Attendance-Management-System/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          Live Demo ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════ PROJECT 5: HOTEL MANAGEMENT SYSTEM ══════════ -->
+  <div class="proj-card reveal">
+
+    <div class="proj-thumb thumb-b">
+      <div class="proj-thumb-icon">🏨</div>
+      <div class="proj-status status-live">● Completed</div>
+    </div>
+
+    <div class="proj-body">
+
+      <div class="proj-cats">
+        <span class="proj-cat">Python</span>
+        <span class="proj-cat">OOP</span>
+      </div>
+
+      <div class="proj-title">
+        Hotel Management System
+      </div>
+
+      <div class="proj-desc">
+        Developed a Python-based Hotel Management System to streamline
+        room booking, customer management, billing, and report
+        generation. Implemented a modular architecture using
+        Object-Oriented Programming principles for hotel operations
+        and data management.
+      </div>
+
+      <div class="proj-metrics">
+
+        <div class="proj-metric">
+          <div class="pm-val">Python</div>
+          <div class="pm-label">Language</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">OOP</div>
+          <div class="pm-label">Design</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Billing</div>
+          <div class="pm-label">Automation</div>
+        </div>
+
+      </div>
+
+      <div class="proj-links">
+        <a href="https://github.com/hemu1196/Hotel_Management_System_PY"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          GitHub ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════ PROJECT 6: ROBOTIC OBSTACLE DETECTION VEHICLE ══════════ -->
+  <div class="proj-card reveal">
+
+    <div class="proj-thumb thumb-c">
+      <div class="proj-thumb-icon">🤖</div>
+      <div class="proj-status status-live">● Completed</div>
+    </div>
+
+    <div class="proj-body">
+
+      <div class="proj-cats">
+        <span class="proj-cat">C</span>
+        <span class="proj-cat">Arduino</span>
+        <span class="proj-cat">IoT</span>
+      </div>
+
+      <div class="proj-title">
+        Robotic Obstacle Detection Vehicle
+      </div>
+
+      <div class="proj-desc">
+        Designed and developed a Robotic Obstacle Detection Vehicle
+        using C language and Arduino. Implemented ultrasonic
+        sensor-based obstacle detection, real-time distance monitoring,
+        and autonomous navigation for intelligent movement and
+        collision avoidance.
+      </div>
+
+      <div class="proj-metrics">
+
+        <div class="proj-metric">
+          <div class="pm-val">C</div>
+          <div class="pm-label">Language</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Sensors</div>
+          <div class="pm-label">Integration</div>
+        </div>
+
+      </div>
+
+      <div class="proj-links">
+        <a href="https://www.linkedin.com/posts/hema-chandra-88882033b_robotics-embeddedsystems-cprogramming-activity-7466141568618663936-rr9l/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          LinkedIn ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════ PROJECT 7: UNIVERSITY MANAGEMENT SYSTEM ══════════ -->
+  <div class="proj-card reveal">
+
+    <div class="proj-thumb thumb-e">
+      <div class="proj-thumb-icon">🎓</div>
+      <div class="proj-status status-live">● Completed</div>
+    </div>
+
+    <div class="proj-body">
+
+      <div class="proj-cats">
+        <span class="proj-cat">Java</span>
+        <span class="proj-cat">OOP</span>
+      </div>
+
+      <div class="proj-title">
+        University Management System
+      </div>
+
+      <div class="proj-desc">
+        Developed a Java-based University Management System featuring
+        role-based modules for Admin, Faculty, and Students.
+        Implemented Object-Oriented Programming concepts with a
+        modular architecture to manage academic records, user
+        operations, and university administration.
+      </div>
+
+      <div class="proj-metrics">
+
+        <div class="proj-metric">
+          <div class="pm-val">Java</div>
+          <div class="pm-label">Core</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">OOP</div>
+          <div class="pm-label">Design</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Admin</div>
+          <div class="pm-label">Modules</div>
+        </div>
+
+      </div>
+
+      <div class="proj-links">
+        <a href="https://github.com/hemu1196/UniversityManagmentSystem_java"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          GitHub ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════ PROJECT 8: CONSTRUCTION INTELLIGENCE HUB — FEATURED ══════════ -->
+  <div class="proj-card featured reveal">
+
+    <div class="proj-thumb thumb-c">
+      <div class="proj-thumb-icon">🏗️</div>
+      <div class="proj-status status-live">● AI / ML Project</div>
+    </div>
+
+    <div class="proj-body">
+
+      <div class="proj-cats">
+        <span class="proj-cat">Artificial Intelligence</span>
+        <span class="proj-cat">Computer Vision</span>
+        <span class="proj-cat">Agentic AI</span>
+      </div>
+
+      <div class="proj-title">
+        Construction Intelligence Hub
+      </div>
+
+      <div class="proj-desc">
+        Worked on an AI-powered construction site intelligence
+        platform focused on safety monitoring and construction
+        risk analytics. Explored computer vision, machine learning,
+        and agentic AI approaches to support industrial safety
+        monitoring and site intelligence.
+      </div>
+
+      <div class="proj-metrics">
+
+        <div class="proj-metric">
+          <div class="pm-val">AI / ML</div>
+          <div class="pm-label">Intelligence</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Vision</div>
+          <div class="pm-label">Safety Analytics</div>
+        </div>
+
+        <div class="proj-metric">
+          <div class="pm-val">Python</div>
+          <div class="pm-label">Technology</div>
+        </div>
+
+      </div>
+
+      <div class="proj-links">
+        <a href="https://github.com/hemu1196"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="proj-link">
+          GitHub Profile ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
-
-<!-- PROJECT 2: HEALTHCARE INSURANCE COST PREDICTION -->
-<div class="proj-card" data-category="aiml">
-  <div class="proj-thumb thumb-b">
-    <div class="proj-thumb-icon">
-      <i class="fas fa-heartbeat"></i>
-    </div>
-    <span class="proj-status status-live">Live Demo</span>
-  </div>
-
-  <div class="proj-body">
-    <div class="proj-cats">
-      <span class="proj-cat">Machine Learning</span>
-      <span class="proj-cat">Healthcare</span>
-    </div>
-
-    <h3 class="proj-title">Healthcare Insurance Cost Prediction</h3>
-
-    <p class="proj-desc">
-      A machine learning application that predicts healthcare insurance costs
-      based on input features. The model is deployed through an interactive
-      Streamlit interface, allowing users to explore predictions.
-    </p>
-
-    <div class="proj-tech">
-      <span class="tool-chip">Python</span>
-      <span class="tool-chip">Machine Learning</span>
-      <span class="tool-chip">Scikit-learn</span>
-      <span class="tool-chip">Streamlit</span>
-    </div>
-
-    <div class="proj-links">
-      <a href="https://healthcare-insurance-cost-prediction-mekvzuvgfimmhccezb5qjp.streamlit.app/"
-         class="proj-link" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-external-link-alt"></i> Live Demo
-      </a>
-
-      <!-- Keep your original ML GitHub repository URL -->
-      <a href="YOUR_ML_GITHUB_LINK"
-         class="proj-link" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-
-<!-- PROJECT 3: AUTONOMOUS OBSTACLE DETECTION VEHICLE -->
-<div class="proj-card" data-category="embedded">
-  <div class="proj-thumb thumb-c">
-    <div class="proj-thumb-icon">
-      <i class="fas fa-robot"></i>
-    </div>
-    <span class="proj-status status-research">Embedded Systems</span>
-  </div>
-
-  <div class="proj-body">
-    <div class="proj-cats">
-      <span class="proj-cat">Robotics</span>
-      <span class="proj-cat">Embedded Systems</span>
-    </div>
-
-    <h3 class="proj-title">Autonomous Obstacle Detection Vehicle</h3>
-
-    <p class="proj-desc">
-      An autonomous robotic vehicle developed to detect obstacles and navigate
-      its surroundings using sensor-based detection and embedded control.
-      The project explores robotics, hardware integration, and real-time
-      decision-making.
-    </p>
-
-    <div class="proj-tech">
-      <span class="tool-chip">Arduino</span>
-      <span class="tool-chip">Embedded C/C++</span>
-      <span class="tool-chip">Sensors</span>
-      <span class="tool-chip">Robotics</span>
-    </div>
-
-    <div class="proj-links">
-      <!-- Use your existing LinkedIn project/profile URL -->
-      <a href="YOUR_DETECTION_VEHICLE_LINKEDIN_LINK"
-         class="proj-link" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-    </div>
-  </div>
-</div>
-
-
-<!-- PROJECT 4: MEDGUARD AI -->
-<div class="proj-card" data-category="aiml">
-  <div class="proj-thumb thumb-d">
-    <div class="proj-thumb-icon">
-      <i class="fas fa-notes-medical"></i>
-    </div>
-    <span class="proj-status status-wip">Healthcare AI</span>
-  </div>
-
-  <div class="proj-body">
-    <div class="proj-cats">
-      <span class="proj-cat">Mobile App</span>
-      <span class="proj-cat">Healthcare</span>
-    </div>
-
-    <h3 class="proj-title">MEDGUARD AI</h3>
-
-    <p class="proj-desc">
-      A cross-platform healthcare and emergency assistance application
-      featuring emergency SOS, an AI health assistant, medication management,
-      nearby hospital discovery, and a digital health vault.
-    </p>
-
-    <div class="proj-tech">
-      <span class="tool-chip">Flutter</span>
-      <span class="tool-chip">Dart</span>
-      <span class="tool-chip">Firebase</span>
-      <span class="tool-chip">MongoDB</span>
-    </div>
-
-    <div class="proj-links">
-      <a href="YOUR_MEDGUARD_GITHUB_LINK"
-         class="proj-link" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-
-<!-- PROJECT 5: CONSTRUCTION INTELLIGENCE HUB -->
-<div class="proj-card" data-category="aiml">
-  <div class="proj-thumb thumb-e">
-    <div class="proj-thumb-icon">
-      <i class="fas fa-hard-hat"></i>
-    </div>
-    <span class="proj-status status-research">AI / ML</span>
-  </div>
-
-  <div class="proj-body">
-    <div class="proj-cats">
-      <span class="proj-cat">AI/ML</span>
-      <span class="proj-cat">Computer Vision</span>
-    </div>
-
-    <h3 class="proj-title">Construction Intelligence Hub</h3>
-
-    <p class="proj-desc">
-      An industrial construction site intelligence platform focused on
-      safety monitoring and construction risk analytics using computer
-      vision, machine learning, and agentic AI techniques.
-    </p>
-
-    <div class="proj-tech">
-      <span class="tool-chip">Python</span>
-      <span class="tool-chip">Computer Vision</span>
-      <span class="tool-chip">React</span>
-      <span class="tool-chip">Streamlit</span>
-      <span class="tool-chip">Agentic AI</span>
-    </div>
-
-    <div class="proj-links">
-      <a href="YOUR_CONSTRUCTION_PROJECT_LINK"
-         class="proj-link" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-external-link-alt"></i> Project
-      </a>
-    </div>
-  </div>
-</div>
 
   </div>
 </section>
@@ -1930,137 +2349,172 @@ footer {
 </section>
 
 <!-- ══════════ CONTACT ══════════ -->
+
+<!-- ══════════ CONTACT ══════════ -->
 <section class="contact" id="contact">
+
   <div class="contact-grid">
+
+    <!-- LEFT: CONTACT DETAILS -->
     <div class="reveal">
-      <div class="section-tag">Get In Touch</div>
-      <h2 class="section-heading">Let's build<br>something <em>amazing</em></h2>
-      <p class="section-sub">Whether it's a full-time role, internship, freelance project, or just a chat about tech — my inbox is open.</p>
+
+      <div class="section-tag">A Little Hello Goes a Long Way</div>
+
+      <h2 class="section-heading">
+        Let's <em>Connect</em>
+      </h2>
+
+      <p class="section-sub">
+        Have an opportunity, project idea, or just want to say hi?
+        I'd love to hear from you! 👋
+      </p>
 
       <div class="contact-info">
-        <a href="mailto:pinjalahemachandra469@gmail.com" class="ci-item">
+
+        <!-- EMAIL -->
+        <a href="mailto:hemachandra1196@gmail.com"
+           class="ci-item">
+
           <div class="ci-icon">✉️</div>
+
           <div>
             <div class="ci-label">Email</div>
-            <div class="ci-value">pinjalahemachandra469@gmail.com</div>
-            <div class="ci-value">hemachandra1196@gmail.com</div>
+            <div class="ci-value">
+              hemachandra1196@gmail.com
+            </div>
+            <div class="ci-value">
+              pinjalahemachandra469@gmail.com
+            </div>
           </div>
+
         </a>
-        <a href="tel:+918309305811" class="ci-item">
+
+        <!-- PHONE -->
+        <a href="tel:+918309305811"
+           class="ci-item">
+
           <div class="ci-icon">📱</div>
+
           <div>
             <div class="ci-label">Phone</div>
-            <div class="ci-value">+91 8309305811</div>
+            <div class="ci-value">
+              +91 8309305811
+            </div>
           </div>
+
         </a>
-        <a href="https://www.linkedin.com/in/hema-chandra-88882033b/" target="_blank" class="ci-item">
+
+        <!-- LINKEDIN -->
+        <a href="https://www.linkedin.com/in/hema-chandra-88882033b/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ci-item">
+
           <div class="ci-icon">💼</div>
+
           <div>
             <div class="ci-label">LinkedIn</div>
-            <div class="ci-value">linkedin.com/in/hema-chandra-88882033b</div>
+            <div class="ci-value">
+              linkedin.com/in/hema-chandra-88882033b
+            </div>
           </div>
+
         </a>
-        <a href="https://github.com/hemu1196" target="_blank" class="ci-item">
+
+        <!-- GITHUB -->
+        <a href="https://github.com/hemu1196"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ci-item">
+
           <div class="ci-icon">🐙</div>
+
           <div>
             <div class="ci-label">GitHub</div>
-            <div class="ci-value">github.com/hemu1196</div>
+            <div class="ci-value">
+              github.com/hemu1196
+            </div>
           </div>
+
         </a>
+
       </div>
 
+      <!-- AVAILABILITY -->
       <div class="availability-banner">
+
         <div class="avail-dot"></div>
-        <div class="avail-text">Currently available for <strong>full-time/part-time roles for internships — 2026-27 </strong> and freelance projects.</div>
+
+        <div class="avail-text">
+          Currently open to
+          <strong>Software Engineering Internships</strong>,
+          student projects, and collaborative opportunities
+          for 2026–27.
+        </div>
+
       </div>
+
     </div>
 
+
+    <!-- RIGHT: CONNECT CARD -->
     <div class="reveal">
-        <div style="
-          background:rgba(250,247,242,.05);
-          border:1.5px solid #D9A441;
-          border-radius:var(--r-lg);
-          padding:50px 40px;
-          height:100%;
-          display:flex;
-          flex-direction:column;
-          justify-content:center;
-          align-items:center;
-          text-align:center;
-          box-shadow:0 12px 35px rgba(217,164,65,.12);
-      ">
 
-    <div style="font-size:60px; margin-bottom:20px;">
-      🚀
+      <div class="contact-note-card">
+
+        <div class="contact-note-doodle">
+          🚀
+        </div>
+
+        <div class="section-tag">
+          Nice to Meet You
+        </div>
+
+        <h3 class="contact-note-title">
+          Drop a Message
+        </h3>
+
+        <p class="contact-note-text">
+          I'm currently looking for
+          <strong>Software Engineering</strong>,
+          <strong>Full-Stack Development</strong>, and
+          <strong>Java Developer Internship</strong>
+          opportunities.
+        </p>
+
+        <p class="contact-note-text">
+          If you think I'd be a good fit, feel free to reach out.
+          I'd be happy to connect, learn, and build something
+          meaningful together.
+        </p>
+
+        <a href="mailto:hemachandra1196@gmail.com?subject=Internship%20or%20Project%20Opportunity"
+           class="contact-email-btn">
+
+          <span>✉️</span>
+          Email Me
+          <span>↗</span>
+
+        </a>
+
+        <div class="contact-note-footer">
+
+          <div>📍 Tirupati, Andhra Pradesh, India</div>
+
+          <div>💻 Open to Software Engineering Internships</div>
+
+          <div>🌱 Always learning and building</div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <h3 style="font-family:'Cormorant Garamond',serif;
-               font-size:34px;
-               font-weight:700;
-               color:var(--ivory);
-               margin-bottom:18px;">
-      Let's Connect
-    </h3>
+  </div>
 
-    <div class="avail-text">
-      Thank you for visiting my portfolio.
-      <br><br>
-
-      I'm currently seeking <strong>Software Engineering</strong>,
-      <strong>Full-Stack Development</strong>, and
-      <strong>Java Developer Internship</strong> opportunities.
-
-      <br><br>
-
-      If you'd like to discuss an internship, project collaboration,
-      research opportunity, or simply connect, I'd be delighted to hear from you.
-    </div>
-
-           <br>
-           <br> 
-           
-    <a href="mailto:pinjalahemachandra469@gmail.com?subject=Software%20Engineering%20Opportunity"
-   style="
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:16px 38px;
-      background:linear-gradient(135deg,#E0A846,#F6C453);
-      color:#103C37;
-      font-size:17px;
-      font-weight:700;
-      text-decoration:none;
-      border-radius:14px;
-      border:none;
-      box-shadow:0 12px 30px rgba(224,168,70,.35);
-      transition:all .3s ease;
-   "
-   onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 18px 40px rgba(224,168,70,.55)'"
-   onmouseout="this.style.transform='translateY(0px)';this.style.boxShadow='0 12px 30px rgba(224,168,70,.35)'">
-    📧 Email Me
-   </a>
-    <div style="width:100%;
-                margin:35px 0;
-                border-top:1px solid rgba(250,247,242,.12);">
-    </div>
-    <div class="avail-text" style="
-    margin-top:35px;
-    color:var(--muted);
-    line-height:2;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    text-align:center;">
-
-    <div>📍 <strong>Tirupati, Andhra Pradesh, India</strong></div>
-    <div>💼 <strong>Open to Software Engineering Internships</strong></div>
-    <div>⚡ <strong>Usually responds within 24 hours</strong></div>
-</div>
-</div>
-</div>
-   
 </section>
+
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
