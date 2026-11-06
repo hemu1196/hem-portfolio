@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hema Chandra — Computer Science Portfolio</title>
+<title>Hema Chandra — Software Engineering Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Cabinet+Grotesk:wght@300;400;500;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -1163,6 +1163,401 @@ footer {
 }
 
 
+
+/* ==========================================
+   PROJECT SHOWCASE — PREMIUM IMAGE-FIRST UI
+   Added without changing the rest of the site
+========================================== */
+.projects-upgraded { background: var(--ivory2); }
+.projects-upgraded .projects-header { align-items: end; gap: 24px; }
+.projects-all-link {
+  display:inline-flex; gap:12px; align-items:center; white-space:nowrap;
+  color:var(--teal); text-decoration:none; font-size:13px; font-weight:800;
+  border-bottom:1px solid var(--gold); padding:0 0 8px;
+}
+.projects-all-link:hover { color:var(--gold); }
+.project-toolbar { display:flex; flex-wrap:wrap; gap:9px; margin:-24px 0 30px; }
+.project-filter {
+  border:1px solid var(--border); background:rgba(255,255,255,.55);
+  color:var(--text2); border-radius:30px; padding:10px 17px;
+  font:700 12px 'Cabinet Grotesk',sans-serif; cursor:pointer; transition:.2s;
+}
+.project-filter span { opacity:.6; margin-left:5px; }
+.project-filter:hover,.project-filter.active {
+  background:var(--teal); color:var(--ivory); border-color:var(--teal);
+}
+.projects-grid-premium {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px;
+}
+.project-card {
+  min-width:0; display:flex; flex-direction:column; overflow:hidden;
+  background:var(--white); border:1px solid var(--border); border-radius:20px;
+  box-shadow:0 5px 22px rgba(13,61,58,.045);
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+.project-card:hover {
+  transform:translateY(-7px); border-color:rgba(201,146,58,.6);
+  box-shadow:0 18px 42px rgba(13,61,58,.12);
+}
+.project-card[hidden] { display:none !important; }
+.project-featured { grid-column:span 1; }
+.project-media {
+  position:relative; display:block; height:270px; overflow:hidden;
+  background:#103f39; isolation:isolate;
+}
+.project-media img {
+  width:100%; height:100%; display:block; object-fit:cover;
+  object-position:center; transition:transform .65s cubic-bezier(.2,.7,.2,1);
+}
+.project-media-medguard { height:360px; background:#0b2637; }
+.project-media-medguard img {
+  object-fit:contain; object-position:center; padding:12px 0;
+}
+.project-media-compact { height:205px; }
+.project-card:hover .project-media img { transform:scale(1.035); }
+.project-media::after {
+  content:""; position:absolute; inset:45% 0 0;
+  background:linear-gradient(transparent,rgba(5,20,18,.18));
+  pointer-events:none;
+}
+.project-status {
+  position:absolute; z-index:2; top:15px; right:15px;
+  padding:7px 12px; border-radius:30px;
+  color:#e7f7eb; background:rgba(18,92,58,.88);
+  border:1px solid rgba(255,255,255,.22);
+  font-size:10px; font-weight:800; letter-spacing:.07em;
+  text-transform:uppercase; backdrop-filter:blur(10px);
+}
+.project-status-purple { background:rgba(84,45,135,.9); }
+.project-image-hint {
+  position:absolute; z-index:2; bottom:14px; right:16px;
+  color:#fff; background:rgba(0,0,0,.42); padding:7px 11px;
+  border-radius:30px; font-size:11px; opacity:0; transform:translateY(5px);
+  transition:.25s; backdrop-filter:blur(8px);
+}
+.project-media:hover .project-image-hint { opacity:1; transform:translateY(0); }
+.project-content { display:flex; flex:1; flex-direction:column; padding:25px 26px 24px; }
+.project-eyebrow {
+  display:flex; align-items:center; gap:10px; margin-bottom:12px;
+  color:var(--gold); font-size:10px; font-weight:800; letter-spacing:.12em;
+}
+.project-eyebrow span {
+  color:var(--teal); background:var(--ivory2); border:1px solid var(--border);
+  border-radius:6px; padding:4px 7px; letter-spacing:0;
+}
+.project-title-row { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+.project-content h3 {
+  font:700 27px/1.12 'Cormorant Garamond',serif; color:var(--teal);
+  margin:0 0 8px;
+}
+.project-type {
+  flex-shrink:0; color:var(--text3); background:var(--ivory2);
+  border:1px solid var(--border); padding:5px 9px; border-radius:20px;
+  font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em;
+}
+.project-lead { color:var(--teal2); font-size:14px; font-weight:800; margin-bottom:8px; }
+.project-description { color:var(--text3); font-size:13px; line-height:1.8; margin:0 0 17px; }
+.project-highlights { display:flex; flex-wrap:wrap; gap:7px; margin:0 0 17px; }
+.project-highlights span,.project-stack span {
+  color:var(--text2); background:var(--ivory); border:1px solid var(--border);
+  border-radius:6px; padding:6px 9px; font-size:10px; font-weight:700;
+}
+.project-stack {
+  display:flex; flex-wrap:wrap; align-items:center; gap:7px;
+  border-top:1px solid var(--border); padding-top:14px; margin-top:auto;
+}
+.project-stack b {
+  width:100%; color:var(--text3); font-size:9px;
+  letter-spacing:.12em; text-transform:uppercase; margin-bottom:2px;
+}
+.project-stack span { background:#f4f0e9; color:var(--teal); }
+.project-actions {
+  display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:18px;
+}
+.project-primary-link,.project-secondary-link {
+  display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+  border-radius:8px; padding:10px 14px; font-size:11px; font-weight:800;
+  transition:.2s;
+}
+.project-primary-link { color:var(--ivory); background:var(--teal); border:1px solid var(--teal); }
+.project-primary-link:hover { background:var(--gold); border-color:var(--gold); transform:translateY(-2px); }
+.project-secondary-link { color:var(--teal); border:1px solid var(--border); background:transparent; }
+.project-secondary-link:hover { background:var(--ivory2); border-color:var(--teal); }
+.project-note { color:var(--text3); font-size:10px; font-style:italic; }
+.projects-footnote { margin-top:22px; color:var(--text3); font-size:11px; line-height:1.7; }
+@media(max-width:900px) {
+  .projects-grid-premium { grid-template-columns:1fr 1fr; }
+  .project-media-medguard { height:300px; }
+}
+@media(max-width:620px) {
+  .projects-upgraded .projects-header { align-items:flex-start; flex-direction:column; }
+  .project-toolbar { margin-top:-20px; }
+  .projects-grid-premium { grid-template-columns:1fr; }
+  .project-content { padding:21px; }
+  .project-media { height:220px; }
+  .project-media-medguard { height:340px; }
+  .project-content h3 { font-size:25px; }
+  .project-title-row { flex-direction:column; gap:0; }
+}
+
+
+/* 10-PROJECT SHOWCASE LAYOUT */
+.projects-grid-premium { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.project-hero-wide { grid-column:1 / -1; display:grid; grid-template-columns:1.06fr .94fr; }
+.project-hero-wide .project-media { height:auto; min-height:390px; }
+.project-hero-wide .project-media img { height:100%; object-fit:cover; }
+.project-hero-wide .project-content { justify-content:center; padding:clamp(24px,3vw,48px); }
+.project-hero-wide .project-content h3 { font-size:clamp(38px,5vw,64px); }
+.project-media-lifelink { background:#172c27; }
+.projects-grid-premium .project-card:not(.project-hero-wide) { min-width:0; }
+@media(max-width:900px) {
+ .project-hero-wide { grid-template-columns:1fr; }
+ .project-hero-wide .project-media { min-height:0; height:300px; }
+}
+@media(max-width:620px) {
+ .projects-grid-premium { grid-template-columns:1fr; }
+ .project-hero-wide .project-media { height:240px; }
+}
+
+
+/* ==========================================
+   IMAGE VISIBILITY FIX — SHOW FULL PREVIEWS
+   Preserve screenshots; never crop or stretch.
+========================================== */
+.projects-grid-premium {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+/* Standard project preview windows */
+.projects-grid-premium .project-card:not(.project-hero-wide) .project-media {
+  height: auto !important;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+  background: #e9eee9;
+  overflow: hidden;
+}
+
+/* Entire image remains visible */
+.projects-grid-premium .project-card:not(.project-hero-wide) .project-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain !important;
+  object-position: center;
+  padding: 0;
+  border-radius: 9px;
+  transform: none !important;
+}
+
+/* MEDGUARD is a portrait mobile screenshot */
+.projects-grid-premium .project-card:has(.project-media-medguard) .project-media {
+  background: #092638;
+  aspect-ratio: 16 / 10;
+}
+.projects-grid-premium .project-card:has(.project-media-medguard) .project-media img {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  border-radius: 8px;
+}
+
+/* LifeLink featured preview: retain the full dashboard artwork */
+.project-hero-wide {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  min-width: 0;
+}
+.project-hero-wide .project-media {
+  min-width: 0;
+  min-height: 390px;
+  height: auto;
+  padding: 18px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #102f2b;
+}
+.project-hero-wide .project-media img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain !important;
+  object-position: center;
+  border-radius: 12px;
+  transform: none !important;
+}
+
+/* Remove decorative overlay that can obscure preview details */
+.projects-grid-premium .project-media::after {
+  display: none !important;
+}
+.projects-grid-premium .project-card:hover .project-media img {
+  transform: none !important;
+}
+
+/* Tablet and mobile layouts */
+@media (max-width: 1100px) {
+  .projects-grid-premium {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .project-hero-wide {
+    grid-template-columns: 1fr;
+  }
+  .project-hero-wide .project-media {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
+@media (max-width: 620px) {
+  .projects-grid-premium {
+    grid-template-columns: 1fr;
+  }
+  .projects-grid-premium .project-card:not(.project-hero-wide) .project-media {
+    aspect-ratio: 16 / 10;
+  }
+  .project-hero-wide .project-media {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+  }
+}
+
+
+/* ==========================================
+   COMPACT, CRISP PROJECT THUMBNAILS
+   Smaller previews, full visibility, cleaner cards
+========================================== */
+.projects-grid-premium {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Compact image stage */
+.projects-grid-premium .project-card:not(.project-hero-wide) .project-media {
+  height: 176px !important;
+  aspect-ratio: auto !important;
+  padding: 14px 16px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.98), rgba(239,244,239,.96) 72%);
+  border-bottom: 1px solid rgba(16,63,57,.08);
+}
+
+/* Keep each preview at a modest size and preserve its full aspect ratio */
+.projects-grid-premium .project-card:not(.project-hero-wide) .project-media img {
+  width: auto !important;
+  height: auto !important;
+  max-width: min(100%, 290px) !important;
+  max-height: 146px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 10px;
+  box-shadow: 0 7px 20px rgba(15,48,43,.12);
+  transform: none !important;
+}
+
+/* Portrait MEDGUARD screen: keep its full phone screenshot, centered */
+.projects-grid-premium .project-card:has(.project-media-medguard) .project-media {
+  background: linear-gradient(145deg, #092638, #123d4b);
+}
+.projects-grid-premium .project-card:has(.project-media-medguard) .project-media img {
+  max-width: 100% !important;
+  max-height: 148px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  box-shadow: 0 5px 18px rgba(0,0,0,.22);
+}
+
+/* Featured LifeLink: compact, centered preview alongside its details */
+.project-hero-wide {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+}
+.project-hero-wide .project-media {
+  min-height: 260px !important;
+  height: 260px !important;
+  padding: 18px 22px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #102f2b, #1d5147);
+}
+.project-hero-wide .project-media img {
+  width: auto !important;
+  height: auto !important;
+  max-width: min(100%, 440px) !important;
+  max-height: 220px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.2);
+  transform: none !important;
+}
+
+/* Clean up overlays and hover scaling so details stay sharp */
+.projects-grid-premium .project-media::after { display: none !important; }
+.projects-grid-premium .project-card:hover .project-media img { transform: none !important; }
+.projects-grid-premium .project-image-hint { display: none !important; }
+
+/* Consistent card rhythm */
+.projects-grid-premium .project-content {
+  padding: 20px 21px 21px;
+}
+.projects-grid-premium .project-content h3 {
+  font-size: 24px;
+  line-height: 1.16;
+}
+.projects-grid-premium .project-description {
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+.projects-grid-premium .project-highlights { gap: 6px; }
+.projects-grid-premium .project-highlights span,
+.projects-grid-premium .project-stack span {
+  font-size: 9px;
+  padding: 5px 8px;
+}
+.projects-grid-premium .project-actions { gap: 8px; }
+.projects-grid-premium .project-primary-link,
+.projects-grid-premium .project-secondary-link {
+  padding: 9px 12px;
+  font-size: 10px;
+}
+
+/* Tablet and phone */
+@media (max-width: 1050px) {
+  .projects-grid-premium { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .projects-grid-premium { grid-template-columns: 1fr; }
+  .projects-grid-premium .project-card:not(.project-hero-wide) .project-media {
+    height: 170px !important;
+  }
+  .project-hero-wide { grid-template-columns: 1fr; }
+  .project-hero-wide .project-media {
+    height: 205px !important;
+    min-height: 205px !important;
+  }
+  .project-hero-wide .project-media img {
+    max-height: 175px !important;
+    max-width: 100% !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1553,562 +1948,173 @@ footer {
 
 <!-- ══════════ PROJECTS ══════════ -->
 <!-- ══════════ PROJECTS ══════════ -->
-<section class="projects" id="projects">
+<section class="projects projects-upgraded" id="projects">
   <div class="projects-header reveal">
     <div>
-      <div class="section-tag">My Work</div>
-      <h2 class="section-heading">Projects I've <em>built</em></h2>
-      <p class="section-sub">Academic and real-world projects demonstrating problem-solving, DSA, and development skills.</p>
+      <div class="section-tag">Selected Work · 2024—2026</div>
+      <h2 class="section-heading">Projects I've <em>built.</em></h2>
+      <p class="section-sub">A collection of products, intelligent systems and engineering builds. Each project tells a story through its interface, features and technology.</p>
     </div>
+    <a class="projects-all-link" href="https://github.com/hemu1196" target="_blank" rel="noopener noreferrer">Explore GitHub <span>↗</span></a>
   </div>
 
-  <div class="projects-grid">
-
-    <!-- ══════════ PROJECT 1: MEDGUARD AI — ANDROID & WEB — FEATURED ══════════ -->
-    <div class="proj-card featured reveal">
-
-      <div class="proj-thumb thumb-a">
-        <div class="proj-thumb-icon">🏥</div>
-        <div class="proj-status status-live">● In Development</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">Flutter</span>
-          <span class="proj-cat">Dart</span>
-          <span class="proj-cat">Firebase</span>
-          <span class="proj-cat">MongoDB</span>
-          <span class="proj-cat">AI</span>
-        </div>
-
-        <div class="proj-title">
-          MEDGUARD AI – Healthcare &amp; Emergency Assistance App
-        </div>
-
-        <div class="proj-desc">
-          Developing a cross-platform healthcare and emergency assistance
-          application using Flutter and Dart for Android and Web. Features
-          include Emergency SOS, an AI Health Assistant, Medication
-          Management, Nearby Hospitals, and a Digital Health Vault.
-          Integrates Firebase and MongoDB for backend services and data
-          management, with a focus on accessible healthcare support.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">Flutter</div>
-            <div class="pm-label">Android &amp; Web</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">AI</div>
-            <div class="pm-label">Health Assistant</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">SOS</div>
-            <div class="pm-label">Emergency Support</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://github.com/hemu1196/MedGuard"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            GitHub ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ══════════ PROJECT 2: HEALTHCARE INSURANCE COST PREDICTION — ML ══════════ -->
-    <div class="proj-card featured reveal">
-
-      <div class="proj-thumb thumb-b">
-        <div class="proj-thumb-icon">📈</div>
-        <div class="proj-status status-live">● Live Demo</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">Machine Learning</span>
-          <span class="proj-cat">Python</span>
-          <span class="proj-cat">Streamlit</span>
-        </div>
-
-        <div class="proj-title">
-          Healthcare Insurance Cost Prediction
-        </div>
-
-        <div class="proj-desc">
-          Developed a machine learning application to predict healthcare
-          insurance costs based on user-provided information. Built an
-          interactive Streamlit interface to make model predictions
-          accessible through a simple web application.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">ML</div>
-            <div class="pm-label">Prediction</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Python</div>
-            <div class="pm-label">Language</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Streamlit</div>
-            <div class="pm-label">Deployment</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://healthcare-insurance-cost-prediction-mekvzuvgfimmhccezb5qjp.streamlit.app/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            Live Demo ↗
-          </a>
-
-          <a href="https://github.com/hemu1196/Healthcare-Insurance-Cost-Prediction"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            GitHub ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ══════════ PROJECT 3: EVENTHUB — FULL-STACK WEB — FEATURED ══════════ -->
-    <div class="proj-card featured reveal">
-
-      <div class="proj-thumb thumb-a">
-        <div class="proj-thumb-icon">🎉</div>
-        <div class="proj-status status-live">● Featured Project</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">React.js</span>
-          <span class="proj-cat">Tailwind CSS</span>
-          <span class="proj-cat">Supabase</span>
-          <span class="proj-cat">PostgreSQL</span>
-      </div>
-
-        <div class="proj-title">
-          EventHub – Event Registration &amp; Management Platform
-        </div>
-
-        <div class="proj-desc">
-          Built a modern full-stack event management platform using React.js,
-          Tailwind CSS, Supabase, and PostgreSQL. Features event registration,
-          Razorpay payment integration, automated PDF ticket generation with
-          jsPDF, real-time database synchronization, and a responsive user
-          experience.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">React</div>
-            <div class="pm-label">Frontend</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Supabase</div>
-            <div class="pm-label">Backend</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Razorpay</div>
-            <div class="pm-label">Payments</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://github.com/hemu1196/eventHub"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            GitHub ↗
-          </a>
-
-          <a href="https://event-hub-eight-tau.vercel.app/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            Live Demo ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ══════════ PROJECT 4: NETWALK PUZZLE GAME ══════════ -->
-    <div class="proj-card reveal">
-
-      <div class="proj-thumb thumb-a">
-        <div class="proj-thumb-icon">🧩</div>
-        <div class="proj-status status-live">● Completed</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">DAA</span>
-          <span class="proj-cat">DSA</span>
-          <span class="proj-cat">Game Logic</span>
-        </div>
-
-        <div class="proj-title">
-          Netwalk Puzzle Game
-        </div>
-
-        <div class="proj-desc">
-          Developed a Human vs Computer Netwalk Puzzle Game using Python
-          and Data Structures &amp; Algorithms. Implemented intelligent game
-          logic, graph-based connectivity, and pathfinding algorithms to
-          create an interactive puzzle-solving experience.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">DSA</div>
-            <div class="pm-label">Core</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Logic</div>
-            <div class="pm-label">Problem Solving</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://github.com/hemu1196/netwalk-puzzle-game"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            GitHub ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ══════════ PROJECT 5: ATTENDANCE MANAGEMENT SYSTEM ══════════ -->
-    <div class="proj-card reveal">
-
-      <div class="proj-thumb thumb-d">
-        <div class="proj-thumb-icon">📊</div>
-        <div class="proj-status status-live">● Completed</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">Web Development</span>
-          <span class="proj-cat">Database</span>
-        </div>
-
-        <div class="proj-title">
-          Attendance Management System
-        </div>
-
-        <div class="proj-desc">
-          Developed a web-based Attendance Management System using HTML,
-          CSS, and JavaScript with dedicated Admin, Student, and Parent
-          modules. Implemented attendance tracking, monitoring, and
-          automated absence alerts to improve communication and
-          streamline attendance management.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">CRUD</div>
-            <div class="pm-label">Operations</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">MySQL</div>
-            <div class="pm-label">Database</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://github.com/hemu1196/Attendance-Management-System"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            GitHub ↗
-          </a>
-
-          <a href="https://hemu1196.github.io/Attendance-Management-System/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            Live Demo ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ══════════ PROJECT 6: HOTEL MANAGEMENT SYSTEM ══════════ -->
-    <div class="proj-card reveal">
-
-      <div class="proj-thumb thumb-b">
-        <div class="proj-thumb-icon">🏨</div>
-        <div class="proj-status status-live">● Completed</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">Python</span>
-          <span class="proj-cat">OOP</span>
-        </div>
-
-        <div class="proj-title">
-          Hotel Management System
-        </div>
-
-        <div class="proj-desc">
-          Developed a Python-based Hotel Management System to streamline
-          room booking, customer management, billing, and report
-          generation. Implemented a modular architecture using
-          Object-Oriented Programming principles for hotel operations
-          and data management.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">Python</div>
-            <div class="pm-label">Language</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">OOP</div>
-            <div class="pm-label">Design</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Billing</div>
-            <div class="pm-label">Automation</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://github.com/hemu1196/Hotel_Management_System_PY"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            GitHub ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ══════════ PROJECT 7: ROBOTIC OBSTACLE DETECTION VEHICLE ══════════ -->
-    <div class="proj-card reveal">
-
-      <div class="proj-thumb thumb-c">
-        <div class="proj-thumb-icon">🤖</div>
-        <div class="proj-status status-live">● Completed</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">C</span>
-          <span class="proj-cat">Arduino</span>
-          <span class="proj-cat">IoT</span>
-        </div>
-
-        <div class="proj-title">
-          Robotic Obstacle Detection Vehicle
-        </div>
-
-        <div class="proj-desc">
-          Designed and developed a Robotic Obstacle Detection Vehicle
-          using C language and Arduino. Implemented ultrasonic
-          sensor-based obstacle detection, real-time distance monitoring,
-          and autonomous navigation for intelligent movement and
-          collision avoidance.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">C</div>
-            <div class="pm-label">Language</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Sensors</div>
-            <div class="pm-label">Integration</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://www.linkedin.com/posts/hema-chandra-88882033b_robotics-embeddedsystems-cprogramming-activity-7466141568618663936-rr9l/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            LinkedIn ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ══════════ PROJECT 8: UNIVERSITY MANAGEMENT SYSTEM ══════════ -->
-    <div class="proj-card reveal">
-
-      <div class="proj-thumb thumb-e">
-        <div class="proj-thumb-icon">🎓</div>
-        <div class="proj-status status-live">● Completed</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">Java</span>
-          <span class="proj-cat">OOP</span>
-        </div>
-
-        <div class="proj-title">
-          University Management System
-        </div>
-
-        <div class="proj-desc">
-          Developed a Java-based University Management System featuring
-          role-based modules for Admin, Faculty, and Students.
-          Implemented Object-Oriented Programming concepts with a
-          modular architecture to manage academic records, user
-          operations, and university administration.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">Java</div>
-            <div class="pm-label">Core</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">OOP</div>
-            <div class="pm-label">Design</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Admin</div>
-            <div class="pm-label">Modules</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://github.com/hemu1196/UniversityManagmentSystem_java"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            GitHub ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-
-    <!-- ══════════ PROJECT 9: CONSTRUCTION INTELLIGENCE HUB — FEATURED ══════════ -->
-    <div class="proj-card featured reveal">
-
-      <div class="proj-thumb thumb-c">
-        <div class="proj-thumb-icon">🏗️</div>
-        <div class="proj-status status-live">● AI / ML Project</div>
-      </div>
-
-      <div class="proj-body">
-
-        <div class="proj-cats">
-          <span class="proj-cat">Artificial Intelligence</span>
-          <span class="proj-cat">Computer Vision</span>
-          <span class="proj-cat">Agentic AI</span>
-        </div>
-
-        <div class="proj-title">
-          Construction Intelligence Hub
-        </div>
-
-        <div class="proj-desc">
-          Worked on an AI-powered construction site intelligence
-          platform focused on safety monitoring and construction
-          risk analytics. Explored computer vision, machine learning,
-          and agentic AI approaches to support industrial safety
-          monitoring and site intelligence.
-        </div>
-
-        <div class="proj-metrics">
-
-          <div class="proj-metric">
-            <div class="pm-val">AI / ML</div>
-            <div class="pm-label">Intelligence</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Vision</div>
-            <div class="pm-label">Safety Analytics</div>
-          </div>
-
-          <div class="proj-metric">
-            <div class="pm-val">Python</div>
-            <div class="pm-label">Technology</div>
-          </div>
-
-        </div>
-
-        <div class="proj-links">
-          <a href="https://github.com/hemu1196"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="proj-link">
-            GitHub Profile ↗
-          </a>
-        </div>
-
-      </div>
-    </div>
-
+  <div class="project-toolbar" aria-label="Filter projects">
+    <button class="project-filter active" type="button" data-filter="all">All projects <span>10</span></button>
+    <button class="project-filter" type="button" data-filter="app">Apps & Web</button>
+    <button class="project-filter" type="button" data-filter="ai">AI / ML</button>
+    <button class="project-filter" type="button" data-filter="engineering">Engineering</button>
   </div>
+
+  <div class="projects-grid projects-grid-premium">
+
+    <!-- 01 LIFELINK - FEATURED WIDE -->
+    <article class="project-card project-hero-wide reveal" data-category="app">
+      <div class="project-media project-media-lifelink" rel="noopener" aria-label="Open LifeLink project preview">
+        <img src="assets/projects/lifelink-preview.png" alt="LifeLink emergency blood coordination dashboard concept preview" loading="lazy">
+        <span class="project-image-hint">View project preview ↗</span>
+        <span class="project-status">Featured build</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>01 / 10</span> FULL-STACK SYSTEM · HEALTHCARE TECHNOLOGY</div>
+        <div class="project-title-row"><h3>LifeLink.</h3><span class="project-type">Featured project</span></div>
+        <p class="project-lead">When every second counts, better software matters.</p>
+        <p class="project-description">A blood-donation coordination platform connecting donors, hospitals and blood banks. The repository includes a React frontend, FastAPI backend, role-based workflows, emergency blood requests, donor matching and blood inventory management.</p>
+        <div class="project-highlights">
+          <span>Emergency blood board</span><span>Donor & hospital portals</span><span>Smart donor matching</span><span>Blood-bank inventory</span><span>Admin verification</span><span>Analytics</span>
+        </div>
+        <div class="project-stack"><b>Technology stack</b><span>React</span><span>FastAPI</span><span>Python</span><span>SQLAlchemy</span><span>JWT</span><span>REST APIs</span></div>
+        <div class="project-actions">
+          <a href="https://github.com/hemu1196/LifeLink" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub repository <span>↗</span></a>
+          <a href="https://github.com/hemu1196/LifeLink" target="_blank" rel="noopener noreferrer" class="project-secondary-link">Live demo unavailable</a>
+        </div>
+        <p class="project-note">Repository currently provides source code and local run instructions; no public deployed web demo is listed.</p>
+      </div>
+    </article>
+
+    <!-- 02 MEDGUARD -->
+    <article class="project-card project-featured reveal" data-category="app">
+      <div class="project-media project-media-medguard" rel="noopener" aria-label="Open MEDGUARD AI dashboard screenshot">
+        <img src="assets/projects/medguard-dashboard.png" alt="MEDGUARD AI mobile dashboard with emergency SOS and health insights" loading="lazy">
+        <span class="project-image-hint">View product screen ↗</span><span class="project-status">In development</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>02 / 10</span> MOBILE APPLICATION</div>
+        <div class="project-title-row"><h3>MEDGUARD AI</h3><span class="project-type">Healthcare</span></div>
+        <p class="project-lead">Your health & emergency companion.</p>
+        <p class="project-description">A cross-platform healthcare and emergency assistance app built with Flutter, bringing emergency access, health tools and personal health information into one experience.</p>
+        <div class="project-highlights"><span>Emergency SOS</span><span>AI Health Assistant</span><span>Medication tools</span><span>Digital Vault</span><span>Nearby Hospitals</span></div>
+        <div class="project-stack"><b>Technology stack</b><span>Flutter</span><span>Dart</span><span>Firebase</span><span>MongoDB</span></div>
+        <div class="project-actions">
+          <a href="https://github.com/hemu1196/MedGuard" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub repository <span>↗</span></a>
+          <span class="project-note">No public live demo listed</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 EVENTHUB -->
+    <article class="project-card project-featured reveal" data-category="app">
+      <div class="project-media" rel="noopener" aria-label="Open EventHub preview artwork">
+        <img src="assets/projects/eventhub-preview.png" alt="EventHub project artwork placeholder; replace with real application screenshot" loading="lazy"><span class="project-status">Deployed</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>03 / 10</span> FULL-STACK WEB PLATFORM</div>
+        <h3>EventHub</h3><p class="project-lead">Event registration & management platform.</p>
+        <p class="project-description">A responsive event platform with registration, Razorpay payment integration, automated PDF ticket generation and database-backed workflows.</p>
+        <div class="project-highlights"><span>Event registration</span><span>Razorpay</span><span>PDF tickets</span><span>Database sync</span></div>
+        <div class="project-stack"><b>Technology stack</b><span>React</span><span>Tailwind</span><span>Supabase</span><span>PostgreSQL</span></div>
+        <div class="project-actions">
+          <a href="https://github.com/hemu1196/eventHub" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub repository ↗</a>
+          <a href="https://event-hub-eight-tau.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-secondary-link">Live demo ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 CONSTRUCTION -->
+    <article class="project-card reveal" data-category="ai">
+      <div class="project-media project-media-compact" rel="noopener" aria-label="Open Construction Hub preview artwork">
+        <img src="assets/projects/construction-preview.png" alt="Construction Intelligence Hub artwork placeholder; replace with an approved project screenshot" loading="lazy"><span class="project-status project-status-purple">Internship project</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>04 / 10</span> AI / ML · INTERNSHIP</div>
+        <h3>Construction Intelligence Hub</h3>
+        <p class="project-description">Internship work exploring AI-powered construction safety monitoring, computer vision, risk analytics and agentic AI workflows.</p>
+        <div class="project-stack"><span>Python</span><span>Computer Vision</span><span>Machine Learning</span><span>Agentic AI</span></div>
+        <div class="project-actions"><a href="https://github.com/hemu1196" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub profile ↗</a></div>
+        <p class="project-note">Collaborative internship project; add a public project repository when available.</p>
+      </div>
+    </article>
+
+    <!-- 05 INSURANCE -->
+    <article class="project-card reveal" data-category="ai">
+      <div class="project-media project-media-compact" rel="noopener" aria-label="Open insurance prediction preview artwork">
+        <img src="assets/projects/insurance-preview.png" alt="Insurance prediction project artwork placeholder; replace with Streamlit screenshot" loading="lazy"><span class="project-status">Live demo</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>05 / 10</span> MACHINE LEARNING</div>
+        <h3>Healthcare Insurance Cost Prediction</h3>
+        <p class="project-description">An interactive machine learning application that estimates healthcare insurance costs from user-provided information.</p>
+        <div class="project-stack"><span>Python</span><span>Machine Learning</span><span>Streamlit</span></div>
+        <div class="project-actions">
+          <a href="https://github.com/hemu1196/Healthcare-Insurance-Cost-Prediction" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub repository ↗</a>
+          <a href="https://healthcare-insurance-cost-prediction-mekvzuvgfimmhccezb5qjp.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-secondary-link">Live demo ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 06 NETWALK -->
+    <article class="project-card reveal" data-category="engineering">
+      <div class="project-media project-media-compact" rel="noopener" aria-label="Open Netwalk preview artwork">
+        <img src="assets/projects/netwalk-preview.png" alt="Netwalk puzzle game cover artwork; replace with gameplay screenshot" loading="lazy"><span class="project-status">Completed</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>06 / 10</span> ALGORITHMIC GAME</div>
+        <h3>Netwalk Puzzle</h3>
+        <p class="project-description">A Human vs Computer puzzle game built around graph connectivity, pathfinding and interactive problem-solving.</p>
+        <div class="project-stack"><span>Python</span><span>Graphs</span><span>DSA</span></div>
+        <div class="project-actions"><a href="https://github.com/hemu1196/netwalk-puzzle-game" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub repository ↗</a></div>
+      </div>
+    </article>
+
+    <!-- 07 ATTENDANCE -->
+    <article class="project-card reveal" data-category="app">
+      <div class="project-media project-media-compact" rel="noopener" aria-label="Open Attendance project preview artwork">
+        <img src="assets/projects/attendance-preview.png" alt="Attendance Management project artwork; replace with real app screenshot" loading="lazy"><span class="project-status">Completed</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>07 / 10</span> WEB APPLICATION</div>
+        <h3>Attendance Management System</h3>
+        <p class="project-description">A web-based application with Admin, Student and Parent modules for attendance tracking, monitoring and absence alerts.</p>
+        <div class="project-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>MySQL</span></div>
+        <div class="project-actions">
+          <a href="https://github.com/hemu1196/Attendance-Management-System" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub repository ↗</a>
+          <a href="https://hemu1196.github.io/Attendance-Management-System/" target="_blank" rel="noopener noreferrer" class="project-secondary-link">Live demo ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 08 ROBOTICS -->
+    <article class="project-card reveal" data-category="engineering">
+      <div class="project-media project-media-compact" rel="noopener" aria-label="Open Robotics preview artwork">
+        <img src="assets/projects/robotics-preview.png" alt="Robotic obstacle detection project artwork; replace with actual robot photo" loading="lazy"><span class="project-status">Completed</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>08 / 10</span> EMBEDDED SYSTEMS</div>
+        <h3>Robotic Obstacle Detection Vehicle</h3>
+        <p class="project-description">An Arduino-based vehicle using ultrasonic sensing for distance monitoring, obstacle detection and autonomous movement.</p>
+        <div class="project-stack"><span>C</span><span>Arduino</span><span>Ultrasonic sensor</span><span>IoT</span></div>
+        <div class="project-actions"><a href="https://www.linkedin.com/posts/hema-chandra-88882033b_robotics-embeddedsystems-cprogramming-activity-7466141568618663936-rr9l/" target="_blank" rel="noopener noreferrer" class="project-primary-link">Project post ↗</a></div>
+      </div>
+    </article>
+
+    <!-- 09 HOTEL -->
+    <article class="project-card reveal" data-category="app">
+      <div class="project-media project-media-compact" rel="noopener" aria-label="Open Hotel Management preview artwork">
+        <img src="assets/projects/hotel-preview.png" alt="Hotel Management project artwork; replace with real application screenshot" loading="lazy"><span class="project-status">Completed</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>09 / 10</span> PYTHON APPLICATION</div>
+        <h3>Hotel Management System</h3>
+        <p class="project-description">A Python application for room booking, customer management, billing and report generation using object-oriented design.</p>
+        <div class="project-stack"><span>Python</span><span>OOP</span><span>Billing</span></div>
+        <div class="project-actions"><a href="https://github.com/hemu1196/Hotel_Management_System_PY" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub repository ↗</a></div>
+      </div>
+    </article>
+
+    <!-- 10 UNIVERSITY -->
+    <article class="project-card reveal" data-category="app">
+      <div class="project-media project-media-compact" rel="noopener" aria-label="Open University Management preview artwork">
+        <img src="assets/projects/university-preview.png" alt="University Management project artwork; replace with real application screenshot" loading="lazy"><span class="project-status">Completed</span></div><div class="project-content">
+        <div class="project-eyebrow"><span>10 / 10</span> JAVA · OBJECT-ORIENTED DESIGN</div>
+        <h3>University Management System</h3>
+        <p class="project-description">A Java-based system with role-based Admin, Faculty and Student modules for academic and administrative operations.</p>
+        <div class="project-stack"><span>Java</span><span>OOP</span><span>Role-based modules</span></div>
+        <div class="project-actions"><a href="https://github.com/hemu1196/UniversityManagmentSystem_java" target="_blank" rel="noopener noreferrer" class="project-primary-link">GitHub repository ↗</a></div>
+      </div>
+    </article>
+  </div>
+  <p class="projects-footnote">Where a real project screenshot has not yet been supplied, the cover is an illustrative placeholder. Replace it with your own interface, gameplay or hardware photo before publishing.</p>
 </section>
 <!-- ══════════ SKILLS ══════════ -->
 <section class="skills" id="skills">
@@ -2747,5 +2753,24 @@ document.querySelector('.cf-submit').addEventListener('click', () => {
   }, 3000);
 });
 </script>
+
+<script>
+/* Project category filters */
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".project-filter");
+  const projectCards = document.querySelectorAll(".project-card");
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach(item => item.classList.toggle("active", item === button));
+      projectCards.forEach(card => {
+        const matches = filter === "all" || card.dataset.category === filter;
+        card.hidden = !matches;
+      });
+    });
+  });
+});
+</script>
+
 </body>
 </html>
